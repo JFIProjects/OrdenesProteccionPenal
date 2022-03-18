@@ -22,6 +22,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ajax_login" runat="server"/>
         <div>
             <asp:Panel runat="server" ID="Menu" class="container p-3 my-3 border">
                 <asp:Panel runat="server" class="row col-xl">
@@ -32,6 +33,7 @@
                 </asp:Panel>             
             </asp:Panel>
 
+           
            <%--//-------------------------------------------------------------------------------- SOLICITUD ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
         <asp:Panel runat="server" CssClass="row">
@@ -82,11 +84,11 @@
                             </asp:Label>
                         </asp:Label>
                     </asp:Panel>
-                    <%--<axT:MaskedEditExtender ID="emision_extender" runat="server" TargetControlID="emision" MaskType="Date" Mask="99/99/9999"
+                    <axT:MaskedEditExtender ID="emision_extender" runat="server" TargetControlID="emision" MaskType="Date" Mask="99/99/9999"
                         MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
                     <axT:MaskedEditValidator ID="emision_validator" runat="server" ControlExtender="emision_extender" ControlToValidate="emision" IsValidEmpty="false"
                         EmptyValueMessage="* Fecha emisión no puede estar vació" InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                    <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon" />--%>
+                    <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon" />
                 </asp:Panel>
 
                 <asp:Panel runat="server" CssClass="form-group col-xl-6">
@@ -99,11 +101,11 @@
                             </asp:Label>
                         </asp:Label>
                     </asp:Panel>
-                    <%--<axT:MaskedEditExtender ID="inicio_extender" runat="server" TargetControlID="inicio" MaskType="DateTime" Mask="99/99/9999 99:99:99"
+                    <axT:MaskedEditExtender ID="inicio_extender" runat="server" TargetControlID="inicio" MaskType="DateTime" Mask="99/99/9999 99:99:99"
                         MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
                     <axT:MaskedEditValidator ID="inicio_validator" runat="server" ControlExtender="inicio_extender" ControlToValidate="inicio" IsValidEmpty="false"
                         EmptyValueMessage="* Fecha inicio no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                    <axT:CalendarExtender runat="server" TargetControlID="inicio" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="inicio_icon" />--%>
+                    <axT:CalendarExtender runat="server" TargetControlID="inicio" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="inicio_icon" />
                 </asp:Panel>
 
                 <asp:Panel runat="server" CssClass="form-group col-xl-6" ID="panel_fecha_fin">
@@ -116,11 +118,11 @@
                             </asp:Label>
                         </asp:Label>
                     </asp:Panel>
-                    <%--<axT:MaskedEditExtender ID="fin_extender" runat="server" TargetControlID="fin" MaskType="DateTime" Mask="99/99/9999 99:99:99"
+                    <axT:MaskedEditExtender ID="fin_extender" runat="server" TargetControlID="fin" MaskType="DateTime" Mask="99/99/9999 99:99:99"
                         MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
                     <axT:MaskedEditValidator ID="fin_validator" runat="server" ControlExtender="fin_extender" ControlToValidate="fin" IsValidEmpty="false" EmptyValueMessage="* Fecha emisión no puede estar vació"
                         InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                    <axT:CalendarExtender runat="server" TargetControlID="fin" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="fin_icon" />--%>
+                    <axT:CalendarExtender runat="server" TargetControlID="fin" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="fin_icon" />
 
                 </asp:Panel>
 
