@@ -45,7 +45,7 @@ namespace OrdenesProteccionPenal.Vistas
                 uss.Add("user", TextBox_user_name.Text);
                 uss.Add("pass", GetMD5(password));
                 Session["userpass"] = uss;
-                Response.Redirect("MenuFiscalia.aspx");
+                Response.Redirect("MenuPrincipal.aspx");
             }
             else
             {
