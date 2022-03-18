@@ -22,6 +22,15 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Control ajax_login.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ajax_login;
+        
+        /// <summary>
         /// Control Menu.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,24 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.Label emision_icon;
         
         /// <summary>
+        /// Control emision_extender.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender emision_extender;
+        
+        /// <summary>
+        /// Control emision_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditValidator emision_validator;
+        
+        /// <summary>
         /// Control inicio.
         /// </summary>
         /// <remarks>
@@ -164,6 +191,24 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label inicio_icon;
+        
+        /// <summary>
+        /// Control inicio_extender.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender inicio_extender;
+        
+        /// <summary>
+        /// Control inicio_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditValidator inicio_validator;
         
         /// <summary>
         /// Control panel_fecha_fin.
@@ -191,6 +236,24 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label fin_icon;
+        
+        /// <summary>
+        /// Control fin_extender.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender fin_extender;
+        
+        /// <summary>
+        /// Control fin_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditValidator fin_validator;
         
         /// <summary>
         /// Control situacion_riesgo.
