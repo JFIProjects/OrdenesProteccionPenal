@@ -24,6 +24,36 @@ namespace OrdenesProteccionPenal.Vistas
             }
         }
 
-       
+        public void MostrarSolicitud(object sender, EventArgs e)
+        {
+            contenido_orden.Visible = true;
+            contenido_victima.Visible = false;
+            contenido_agresor.Visible = false;
+            contenido_seguimiento.Visible = false;
+        }
+
+        public void MostrarVictima(object sender, EventArgs e)
+        {
+            contenido_orden.Visible = false;
+            contenido_victima.Visible = true;
+            contenido_agresor.Visible = false;
+            contenido_seguimiento.Visible = false;
+        }
+
+        public void MostrarAgresor(object sender, EventArgs e)
+        {
+            contenido_orden.Visible = false;
+            contenido_victima.Visible = false;
+            contenido_agresor.Visible = true;
+            contenido_seguimiento.Visible = false;
+        }
+
+        public void MostrarSeguimiento(object sender, EventArgs e)
+        {
+            contenido_orden.Visible = false;
+            contenido_victima.Visible = false;
+            contenido_agresor.Visible = false;
+            contenido_seguimiento.Visible = true;
+        }
     }
 }

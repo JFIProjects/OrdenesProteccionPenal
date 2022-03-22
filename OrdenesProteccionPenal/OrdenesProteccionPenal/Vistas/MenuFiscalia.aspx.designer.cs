@@ -40,6 +40,15 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.Panel Menu;
         
         /// <summary>
+        /// Control regresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel regresar;
+        
+        /// <summary>
         /// Control contenido_orden.
         /// </summary>
         /// <remarks>
@@ -83,24 +92,6 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator expediente_reg_validator;
-        
-        /// <summary>
-        /// Control juzgado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList juzgado;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// Control medidas_protec.
@@ -265,15 +256,6 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.CheckBox situacion_riesgo;
         
         /// <summary>
-        /// Control juicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox juicio;
-        
-        /// <summary>
         /// Control juicio_panel.
         /// </summary>
         /// <remarks>
@@ -335,15 +317,6 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator expjuicio_validator;
-        
-        /// <summary>
-        /// Control aver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox aver;
         
         /// <summary>
         /// Control aver_panel.
@@ -409,24 +382,6 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator exp_aver_validator;
         
         /// <summary>
-        /// Control violencia_familiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList violencia_familiar;
-        
-        /// <summary>
-        /// Control violencia_familiar_validator.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator violencia_familiar_validator;
-        
-        /// <summary>
         /// Control panel_juicios.
         /// </summary>
         /// <remarks>
@@ -436,13 +391,13 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.Panel panel_juicios;
         
         /// <summary>
-        /// Control juicios.
+        /// Control delitos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList juicios;
+        protected global::System.Web.UI.WebControls.DropDownList delitos;
         
         /// <summary>
         /// Control juicios_validator.
@@ -641,5 +596,32 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button guardar;
+        
+        /// <summary>
+        /// Control contenido_victima.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel contenido_victima;
+        
+        /// <summary>
+        /// Control contenido_agresor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel contenido_agresor;
+        
+        /// <summary>
+        /// Control contenido_seguimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel contenido_seguimiento;
     }
 }
