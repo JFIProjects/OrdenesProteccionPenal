@@ -31,13 +31,13 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.ScriptManager ajax_login;
         
         /// <summary>
-        /// Control Menu.
+        /// Control cerrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Menu;
+        protected global::System.Web.UI.WebControls.LinkButton cerrar;
         
         /// <summary>
         /// Control regresar.
@@ -47,6 +47,15 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel regresar;
+        
+        /// <summary>
+        /// Control Menu.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Menu;
         
         /// <summary>
         /// Control contenido_orden.

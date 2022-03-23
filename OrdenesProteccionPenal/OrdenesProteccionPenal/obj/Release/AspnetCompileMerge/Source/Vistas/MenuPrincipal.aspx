@@ -80,14 +80,14 @@
                         HotSpotMode="Navigate"
                         AlternateText="Fiscalía"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="450"
                         Y="110"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Secretaría de seguridad"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="800"
                         Y="110"
                         Radius="60"
@@ -96,14 +96,14 @@
 
 
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="260"
                         Y="210"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Secretaría de la Defensa Nacional"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="620"
                         Y="210"
                         Radius="60"
@@ -112,21 +112,21 @@
 
 
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="100"
                         Y="400"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Dirección de Seguridad (Municipales)"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="450"
                         Y="400"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="CEAVEM"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="800"
                         Y="400"
                         Radius="60"
@@ -137,14 +137,14 @@
 
 
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="260"
                         Y="510"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Colegio de Notarios y Corredores Públicos"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="620"
                         Y="510"
                         Radius="60"
@@ -152,21 +152,21 @@
                         AlternateText="Oficialias, Mediadoras"></asp:CircleHotSpot>
 
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="100"
                         Y="650"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Secretaría de Relaciones Exteriores"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="450"
                         Y="650"
                         Radius="60"
                         HotSpotMode="Navigate"
                         AlternateText="Secretaría de la mujer"></asp:CircleHotSpot>
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="800"
                         Y="650"
                         Radius="60"
@@ -175,7 +175,7 @@
 
 
                     <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
+                        NavigateUrl="Proceso.aspx"
                         X="260"
                         Y="760"
                         Radius="60"

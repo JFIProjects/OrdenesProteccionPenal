@@ -85,10 +85,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/18/2022 16:05:28</publishTime>
     </File>
     <File Include="bin/OrdenesProteccionPenal.dll">
-      <publishTime>03/18/2022 17:19:46</publishTime>
+      <publishTime>03/22/2022 18:59:17</publishTime>
     </File>
     <File Include="bin/OrdenesProteccionPenal.pdb">
-      <publishTime>03/18/2022 17:19:46</publishTime>
+      <publishTime>03/22/2022 18:59:17</publishTime>
     </File>
     <File Include="bin/Remotion.Linq.dll">
       <publishTime>03/01/2021 12:38:29</publishTime>
@@ -297,6 +297,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="img/completo.png">
       <publishTime>03/18/2022 16:24:13</publishTime>
     </File>
+    <File Include="img/completo1.png">
+      <publishTime>03/22/2022 18:14:51</publishTime>
+    </File>
     <File Include="Img/IconoPJEM.png">
       <publishTime>03/01/2021 12:38:27</publishTime>
     </File>
@@ -320,6 +323,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Img/Plan de Actividades 2000px.png">
       <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="img/proceso.png">
+      <publishTime>03/22/2022 18:20:28</publishTime>
     </File>
     <File Include="Img/reportemedidas.svg">
       <publishTime>12/17/2021 17:55:54</publishTime>
@@ -370,10 +376,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/15/2022 17:30:52</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/18/2022 17:19:47</publishTime>
+      <publishTime>03/22/2022 18:59:19</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml.user">
-      <publishTime>03/18/2022 16:30:53</publishTime>
+      <publishTime>03/18/2022 17:19:52</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>02/08/2021 12:24:23</publishTime>
@@ -808,13 +814,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/15/2022 18:05:44</publishTime>
     </File>
     <File Include="Vistas/MenuFiscalia.aspx">
-      <publishTime>03/18/2022 15:57:35</publishTime>
+      <publishTime>03/22/2022 13:16:56</publishTime>
     </File>
     <File Include="Vistas/MenuPrincipal.aspx">
-      <publishTime>03/18/2022 16:24:13</publishTime>
+      <publishTime>03/22/2022 18:56:36</publishTime>
+    </File>
+    <File Include="Vistas/Proceso.aspx">
+      <publishTime>03/22/2022 18:31:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/18/2022 16:29:51</publishTime>
+      <publishTime>03/22/2022 18:59:18</publishTime>
     </File>
     <File Include="webfonts/fa-brands-400.eot">
       <publishTime>08/17/2021 13:11:22</publishTime>

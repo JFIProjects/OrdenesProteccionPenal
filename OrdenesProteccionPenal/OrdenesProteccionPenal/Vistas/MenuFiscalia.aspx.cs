@@ -24,6 +24,13 @@ namespace OrdenesProteccionPenal.Vistas
             }
         }
 
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
+
         public void MostrarSolicitud(object sender, EventArgs e)
         {
             contenido_orden.Visible = true;

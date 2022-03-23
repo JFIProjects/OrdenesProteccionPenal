@@ -26,14 +26,15 @@
         <div>
             <asp:Panel runat="server" ID="Menu" class="container p-3 my-3 border">
                 <asp:Panel runat="server" class="row col-xl">
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;">Solicitud</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;">Victima</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;">Agresor</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;">Seguimiento</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarSolicitud" Autopostback ="true">Solicitud</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarVictima" Autopostback ="true">Victima</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarAgresor" Autopostback ="true">Agresor</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarSeguimiento" Autopostback ="true">Seguimiento</asp:LinkButton></asp:Panel>
                 </asp:Panel>             
             </asp:Panel>
 
-           
+             <asp:Panel runat="server" ID="regresar" class="container">
+           <a href="MenuPrincipal.aspx">Regresar al menú</a></asp:Panel>
            <%--//-------------------------------------------------------------------------------- SOLICITUD ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
         <asp:Panel runat="server" CssClass="row">
@@ -47,18 +48,18 @@
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="expediente">* Expediente</asp:Label>
                 <asp:TextBox runat="server" ID="expediente" ClientIDMode="Static" placeholder="00000/0000" CssClass="form-control form-control-sm" />
                 <asp:RequiredFieldValidator runat="server" ID="expediente_validator" ErrorMessage="* El nombre(s) no puede estar vació" ControlToValidate="expediente"
-                    ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" Display="Dynamic" />
+                    ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" ValidationGroup="validation_solicitud" Display="Dynamic" />
                 <asp:RegularExpressionValidator ID="expediente_reg_validator" runat="server" ControlToValidate="expediente" ValidationExpression="\d{1,5}/\d{4}"
                     AutoComplete="true" OnInvalidCssClass="text-danger" ErrorMessage="El expediente no tiene el formato requerido" SetFocusOnError="true"
                     ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
             </asp:Panel>
 
-            <asp:Panel runat="server" CssClass="form-group  col-xl-12 p-0">
+            <%--<asp:Panel runat="server" CssClass="form-group  col-xl-12 p-0">
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="juzgado">Juzgado</asp:Label>
                 <asp:DropDownList runat="server" ID="juzgado" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true" />
                 <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ErrorMessage="* Selecciona una opción" ControlToValidate="juzgado"
                     InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
-            </asp:Panel>
+            </asp:Panel>--%>
 
             <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec">Medidas de protección</asp:Label>
@@ -88,7 +89,7 @@
                         MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
                     <axT:MaskedEditValidator ID="emision_validator" runat="server" ControlExtender="emision_extender" ControlToValidate="emision" IsValidEmpty="false"
                         EmptyValueMessage="* Fecha emisión no puede estar vació" InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                    <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon" />
+                    <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon"/>
                 </asp:Panel>
 
                 <asp:Panel runat="server" CssClass="form-group col-xl-6">
@@ -119,7 +120,7 @@
                         </asp:Label>
                     </asp:Panel>
                     <axT:MaskedEditExtender ID="fin_extender" runat="server" TargetControlID="fin" MaskType="DateTime" Mask="99/99/9999 99:99:99"
-                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger"/>
                     <axT:MaskedEditValidator ID="fin_validator" runat="server" ControlExtender="fin_extender" ControlToValidate="fin" IsValidEmpty="false" EmptyValueMessage="* Fecha emisión no puede estar vació"
                         InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
                     <axT:CalendarExtender runat="server" TargetControlID="fin" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="fin_icon" />
@@ -131,8 +132,8 @@
 
             </asp:Panel>
 
-            <asp:CheckBox runat="server" ID="juicio" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-12" 
-                AutoPostBack="true" Text="¿La orden de protección está relacionada con un asunto penal?" name="juicio" />
+           <%-- <asp:CheckBox runat="server" ID="juicio" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-12" 
+                AutoPostBack="true" Text="¿La orden de protección está relacionada con un asunto penal?" name="juicio" />--%>
 
             <asp:Panel runat="server" ID="juicio_panel" Visible="false" CssClass="col-xl-12 p-0">
 
@@ -172,11 +173,11 @@
 
             </asp:Panel>
 
-            <asp:CheckBox runat="server" ID="aver" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-12" 
-                AutoPostBack="true" Text="¿La orden de protección está relacionada con una carpeta de investigación?" name="aver" />
+            <%--<asp:CheckBox runat="server" ID="aver" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-12" 
+                AutoPostBack="true" Text="¿La orden de protección está relacionada con una carpeta de investigación?" name="aver" />--%>
 
 
-            <asp:Panel runat="server" ID="aver_panel" Visible="false" CssClass="col-xl-12 p-0">
+            <asp:Panel runat="server" ID="aver_panel" Visible="true" CssClass="col-xl-12 p-0">
                 <hr />
                 <h4 runat="server">Carpeta de Investigación</h4>
 
@@ -213,7 +214,7 @@
                 </asp:Panel>
             </asp:Panel>
 
-            <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
+           <%-- <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="violencia_familiar">Juicio de violencia familiar</asp:Label>
                 <asp:RadioButtonList ID="violencia_familiar" runat="server" RepeatDirection="Horizontal"  AutoPostBack="true">
                     <asp:ListItem Value="si">Si</asp:ListItem>
@@ -221,16 +222,16 @@
                 </asp:RadioButtonList>
                 <asp:RequiredFieldValidator runat="server" ID="violencia_familiar_validator" ErrorMessage="* Se debe elegir una opcion" ControlToValidate="violencia_familiar"
                     ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
-            </asp:Panel>
+            </asp:Panel>--%>
 
-            <asp:Panel runat="server" CssClass="col-xl-12" ID="panel_juicios" Visible="false">
+            <asp:Panel runat="server" CssClass="col-xl-12" ID="panel_juicios" Visible="true">
                 <asp:Panel runat="server" CssClass="form-group ">
-                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="juicios">Pretensión principal</asp:Label>
-                    <asp:DropDownList runat="server" ID="juicios" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
-                        <asp:ListItem Value="" Text="--- Selecciona Juicio ---" Selected="True" />
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="delitos">Delito</asp:Label>
+                    <asp:DropDownList runat="server" ID="delitos" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
+                        <asp:ListItem Value="" Text="--- Selecciona Delito ---" Selected="True" />
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ID="juicios_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="juicios"
-                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
+                    <asp:RequiredFieldValidator runat="server" ID="juicios_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="delitos"
+                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" ValidationGroup="validation_solicitud"/>
                 </asp:Panel>
             </asp:Panel>
 
@@ -345,6 +346,31 @@
 
     </asp:Panel>
            <%--//-------------------------------------------------------------------------------- SOLICITUD ------------------------------------------------------------------------------------//--%>
+            
+
+            <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
+            <asp:Panel runat="server" ID="contenido_victima" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
+            <asp:Panel runat="server" CssClass="row">
+                PÁGINA EN CONSTRUCCIÓN
+            </asp:Panel>
+            </asp:Panel>
+            <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
+
+            <%--//-------------------------------------------------------------------------------- AGRESOR ------------------------------------------------------------------------------------//--%>
+            <asp:Panel runat="server" ID="contenido_agresor" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
+            <asp:Panel runat="server" CssClass="row">
+                PÁGINA EN CONSTRUCCIÓN
+            </asp:Panel>
+            </asp:Panel>
+            <%--//-------------------------------------------------------------------------------- AGRESOR ------------------------------------------------------------------------------------//--%>
+
+            <%--//-------------------------------------------------------------------------------- SEGUIMIENTO ------------------------------------------------------------------------------------//--%>
+            <asp:Panel runat="server" ID="contenido_seguimiento" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
+            <asp:Panel runat="server" CssClass="row">
+                PÁGINA EN CONSTRUCCIÓN
+            </asp:Panel>
+            </asp:Panel>
+            <%--//-------------------------------------------------------------------------------- SEGUIMIENTO ------------------------------------------------------------------------------------//--%>
 
         </div>
     </form>
