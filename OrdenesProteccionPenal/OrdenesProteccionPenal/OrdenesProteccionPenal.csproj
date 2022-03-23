@@ -79,7 +79,9 @@
     <Content Include="css\Sesion.css" />
     <Content Include="img\completo.png" />
     <Content Include="img\Logo_200x60.png" />
+    <Content Include="img\completo1.png" />
     <Content Include="img\pjem.png" />
+    <Content Include="img\proceso.png" />
     <Content Include="js\datos.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\Sesion.js" />
@@ -90,7 +92,10 @@
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\MenuFiscalia.aspx" />
     <Content Include="Vistas\MenuPrincipal.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Vistas\Proceso.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +119,13 @@
     </Compile>
     <Compile Include="Vistas\MenuPrincipal.aspx.designer.cs">
       <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Proceso.aspx.cs">
+      <DependentUpon>Proceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Proceso.aspx.designer.cs">
+      <DependentUpon>Proceso.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

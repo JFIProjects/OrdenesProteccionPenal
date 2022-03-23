@@ -13,10 +13,10 @@ namespace OrdenesProteccionPenal.Vistas
         {
             if (!IsPostBack)
             {
-                //if (Session["userpass"] is null)
-                //{
-                //    Response.Redirect("Login.aspx");
-                //}
+                if (Session["userpass"] is null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
             }
             else
             {
