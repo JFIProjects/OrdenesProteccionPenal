@@ -7,3 +7,12 @@ C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProtec
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.pdb
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\MySql.Data.dll
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CopyComplete
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.dll.config
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.dll
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.pdb
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\AjaxControlToolkit.dll
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.AssemblyReference.cache
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CoreCompileInputs.cache
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CopyComplete
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.dll
+C:\Users\Esther\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.pdb
