@@ -89,7 +89,6 @@
     <Content Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\MenuFiscalia.aspx" />
-    <Content Include="Vistas\Proceso.aspx" />
     <Content Include="Vistas\MenuPrincipal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -108,13 +107,6 @@
     </Compile>
     <Compile Include="Vistas\MenuFiscalia.aspx.designer.cs">
       <DependentUpon>MenuFiscalia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Proceso.aspx.cs">
-      <DependentUpon>Proceso.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\Proceso.aspx.designer.cs">
-      <DependentUpon>Proceso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\MenuPrincipal.aspx.cs">
       <DependentUpon>MenuPrincipal.aspx</DependentUpon>
