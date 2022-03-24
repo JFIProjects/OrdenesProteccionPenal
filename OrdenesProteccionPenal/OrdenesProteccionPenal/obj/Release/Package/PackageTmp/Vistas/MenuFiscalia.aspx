@@ -24,17 +24,28 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ajax_login" runat="server"/>
         <div>
-            <asp:Panel runat="server" ID="Menu" class="container p-3 my-3 border">
+            
+            <div class="col-sm-4" id="cerrar-sesion">
+            <asp:LinkButton runat="server" ID="cerrar" AutoPostBack="true" class="btn btn-dark"
+                Font-Size="20px" OnClick="btnCerrar_Click" CausesValidation="false" Visible="true" Style="font-size: 16px; color: white; margin-left: 377px;">Cerrar Sesión</asp:LinkButton>
+            </div>
+
+            <asp:Panel runat="server" ID="regresar" class="container">
+            <a href="MenuPrincipal.aspx">Regresar al menú</a></asp:Panel>
+
+            <asp:Panel runat="server" ID="Menu" class="container p-3 my-3 border" Style="background: linear-gradient(-135deg, #9d2424, #c80000);">
                 <asp:Panel runat="server" class="row col-xl">
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarSolicitud" Autopostback ="true">Solicitud</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarVictima" Autopostback ="true">Victima</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarAgresor" Autopostback ="true">Agresor</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: dimgray;" CausesValidation="false" OnClick="MostrarSeguimiento" Autopostback ="true">Seguimiento</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarSolicitud" Autopostback ="true">Solicitud</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarVictima" Autopostback ="true">Victima</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarAgresor" Autopostback ="true">Agresor</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-3"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarSeguimiento" Autopostback ="true">Seguimiento</asp:LinkButton></asp:Panel>
                 </asp:Panel>             
             </asp:Panel>
 
-             <asp:Panel runat="server" ID="regresar" class="container">
-           <a href="MenuPrincipal.aspx">Regresar al menú</a></asp:Panel>
+             
+             
+
+            
            <%--//-------------------------------------------------------------------------------- SOLICITUD ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
         <asp:Panel runat="server" CssClass="row">
@@ -351,7 +362,7 @@
             <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_victima" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
             <asp:Panel runat="server" CssClass="row">
-                PÁGINA EN CONSTRUCCIÓN
+                <img src="../img/proceso.png"/>
             </asp:Panel>
             </asp:Panel>
             <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
@@ -359,7 +370,7 @@
             <%--//-------------------------------------------------------------------------------- AGRESOR ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_agresor" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
             <asp:Panel runat="server" CssClass="row">
-                PÁGINA EN CONSTRUCCIÓN
+                <img src="../img/proceso.png"/>
             </asp:Panel>
             </asp:Panel>
             <%--//-------------------------------------------------------------------------------- AGRESOR ------------------------------------------------------------------------------------//--%>
@@ -367,7 +378,7 @@
             <%--//-------------------------------------------------------------------------------- SEGUIMIENTO ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_seguimiento" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
             <asp:Panel runat="server" CssClass="row">
-                PÁGINA EN CONSTRUCCIÓN
+                <img src="../img/proceso.png"/>
             </asp:Panel>
             </asp:Panel>
             <%--//-------------------------------------------------------------------------------- SEGUIMIENTO ------------------------------------------------------------------------------------//--%>

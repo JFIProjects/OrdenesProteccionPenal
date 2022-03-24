@@ -136,10 +136,7 @@
     </style>
     <form id="form1" runat="server">
 
-        <div class="col-sm-4" id="cerrar-sesion">
-            <asp:LinkButton runat="server" ID="cerrar" AutoPostBack="true" class="btn btn-dark"
-                Font-Size="20px" OnClick="btnCerrar_Click" Visible="true" Style="font-size: 16px; color: white; margin-left: 257px;">Cerrar Sesión</asp:LinkButton>
-        </div>
+        
 
         <asp:Panel runat="server" Style="width: 100%; height: 100px;">
             <asp:Panel runat="server" Style="display: flex; margin: 0 auto; height: 90px; width: 40%">
@@ -151,7 +148,18 @@
 
         </asp:Panel>
 
-        <asp:Panel runat="server" Style="width: 100%; height: 30px; background: linear-gradient(-135deg, #9d2424, #c80000);" />
+        <asp:Panel runat="server" Style="width: 100%; height: 46px; background: linear-gradient(-135deg, #9d2424, #c80000);">
+            <asp:Panel runat="server" ID="Menu" class="container">
+                <asp:Panel runat="server" class="row col-xl">
+                  <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-1"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" class="btn btn-dark" CausesValidation="false" OnClick="btnCerrar_Click"  Autopostback ="true">Cerrar Sesión</asp:LinkButton></asp:Panel>
+                </asp:Panel>             
+            </asp:Panel>
+                </asp:Panel>
 
 
 

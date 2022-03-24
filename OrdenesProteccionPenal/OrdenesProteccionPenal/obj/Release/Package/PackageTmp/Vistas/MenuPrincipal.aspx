@@ -38,6 +38,101 @@
             .icono-imagen:hover {
                 background-color: gold;
             }
+
+
+        /* .area {
+            background: #fff;
+            display: block;
+            height: 120px;
+            opacity: 0;
+            position: absolute;
+            width: 120px;
+            border-radius: 50%;
+        } 
+
+            
+
+        #area1 {
+            left: 35px;
+            margin-top: 60px;
+        }
+
+        #area2 {
+            left: 395px;
+            margin-top: 60px;
+        }
+
+        #area3 {
+            left: 745px;
+            margin-top: 60px;
+        }
+
+
+        #area4 {
+            left: 215px;
+            margin-top: 160px;
+        }
+
+        #area5 {
+            left: 565px;
+            margin-top: 160px;
+        }
+
+        #area6 {
+            left: 35px;
+            margin-top: 340px;
+        }
+
+        #area7 {
+            left: 395px;
+            margin-top: 340px;
+        }
+
+        #area8 {
+            left: 745px;
+            margin-top: 340px;
+        }
+
+        #area9 {
+            left: 215px;
+            margin-top: 440px;
+        }
+
+        #area10 {
+            left: 565px;
+            margin-top: 440px;
+        }
+
+        #area11 {
+            left: 35px;
+            margin-top: 600px;
+        }
+
+        #area12 {
+            left: 395px;
+            margin-top: 600px;
+        }
+
+        #area13 {
+            left: 745px;
+            margin-top: 600px;
+        }
+
+        #area14 {
+            left: 215px;
+            margin-top: 700px;
+        }
+
+        #area15 {
+            left: 565px;
+            margin-top: 700px;
+        }
+
+        #area1:hover, #area2:hover, #area3:hover, #area4:hover, #area5:hover, #area5:hover, #area6:hover, #area7:hover, #area8:hover, 
+            #area9:hover, #area10:hover, #area11:hover, #area12:hover, #area13:hover, #area14:hover, #area15:hover {
+                opacity: 0.70;
+                border-style: dotted;
+            } */
     </style>
     <form id="form1" runat="server">
 
@@ -56,142 +151,35 @@
 
         </asp:Panel>
 
-            <asp:Panel runat="server" style="width:100%; height: 30px; background: linear-gradient(-135deg, #9d2424, #c80000);"/>
+        <asp:Panel runat="server" Style="width: 100%; height: 30px; background: linear-gradient(-135deg, #9d2424, #c80000);" />
 
 
 
-        <asp:Panel runat="server" Style="width: 100%; padding-top: 50px;">
+        <asp:Panel runat="server" Style="width: 100%;">
 
-            <asp:Panel runat="server">
+            <asp:Panel runat="server" style="BACKGROUND-COLOR: #EBECF0;
+">
 
-                <asp:ImageMap ID="Buttons" class="mx-auto d-block"
-                    ImageUrl="../img/completo.png"
-                    Width="900px"
-                    AlternateText="Navigation buttons"
-                    HotSpotMode="NotSet"
-                    OnClick="ButtonsMap_Clicked"
-                    runat="Server">
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
-                        X="100"
-                        Y="110"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Fiscalía"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="450"
-                        Y="110"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría de seguridad"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="800"
-                        Y="110"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría de Movilidad y Comunicaciones"></asp:CircleHotSpot>
-
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="260"
-                        Y="210"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría de la Defensa Nacional"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="620"
-                        Y="210"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría General de Gobierno"></asp:CircleHotSpot>
-
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="100"
-                        Y="400"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Dirección de Seguridad (Municipales)"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="450"
-                        Y="400"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="CEAVEM"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="800"
-                        Y="400"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Instituto de la Función Registral"></asp:CircleHotSpot>
-
-
-
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="260"
-                        Y="510"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Colegio de Notarios y Corredores Públicos"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="620"
-                        Y="510"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Oficialias, Mediadoras"></asp:CircleHotSpot>
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="100"
-                        Y="650"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría de Relaciones Exteriores"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="450"
-                        Y="650"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Secretaría de la mujer"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="800"
-                        Y="650"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="Ayuntamientos municipales"></asp:CircleHotSpot>
-
-
-                    <asp:CircleHotSpot
-                        NavigateUrl="Proceso.aspx"
-                        X="260"
-                        Y="760"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="CEMECA"></asp:CircleHotSpot>
-                    <asp:CircleHotSpot
-                        NavigateUrl="MenuFiscalia.aspx"
-                        X="620"
-                        Y="760"
-                        Radius="60"
-                        HotSpotMode="Navigate"
-                        AlternateText="DIF"></asp:CircleHotSpot>
-
-
-                </asp:ImageMap>
-
+                <asp:Panel runat="server">
+                    <map name="mapa">
+                        <area shape="circle" id="area1" class="area" coords="100,110,60" href="MenuFiscalia.aspx" title="Fiscalía" alt="Fiscalía" />
+                        <area shape="circle" id="area2" class="area" coords="450,110,60" href="Proceso.aspx" title="Secretaría de seguridad" alt="Secretaría de seguridad" />
+                        <area shape="circle" id="area3" class="area" coords="800,110,60" href="Proceso.aspx" title="Secretaría de Movilidad y Comunicaciones" alt="Secretaría de Movilidad y Comunicaciones" />
+                        <area shape="circle" id="area4" class="area" coords="260,210,60" href="Proceso.aspx" title="Secretaría de la Defensa Nacional" alt="Secretaría de la Defensa Nacional" />
+                        <area shape="circle" id="area5" class="area" coords="620,210,60" href="Proceso.aspx" title="Secretaría General de Gobierno" alt="Secretaría General de Gobierno" />
+                        <area shape="circle" id="area6" class="area" coords="100,400,60" href="Proceso.aspx" title="Dirección de Seguridad (Municipales)" alt="Dirección de Seguridad (Municipales)" />
+                        <area shape="circle" id="area7" class="area" coords="450,400,60" href="Proceso.aspx" title="CEAVEM" alt="CEAVEM" />
+                        <area shape="circle" id="area8" class="area" coords="800,400,60" href="Proceso.aspx" title="Instituto de la Función Registral" alt="Instituto de la Función Registral" />
+                        <area shape="circle" id="area9" class="area" coords="260,510,60" href="Proceso.aspx" title="Colegio de Notarios y Corredores Públicos" alt="Colegio de Notarios y Corredores Públicos" />
+                        <area shape="circle" id="area10" class="area" coords="620,510,60" href="Proceso.aspx" title="Oficialias, Mediadoras" alt="Oficialias, Mediadoras" />
+                        <area shape="circle" id="area11" class="area" coords="100,650,60" href="Proceso.aspx" title="Secretaría de Relaciones Exteriores" alt="Secretaría de Relaciones Exteriores" />
+                        <area shape="circle" id="area12" class="area" coords="450,650,60" href="Proceso.aspx" title="Secretaría de la mujer" alt="Secretaría de la mujer" />
+                        <area shape="circle" id="area13" class="area" coords="800,650,60" href="Proceso.aspx" title="Ayuntamientos municipales" alt="Ayuntamientos municipales" />
+                        <area shape="circle" id="area14" class="area" coords="260,760,60" href="Proceso.aspx" title="CEMECA" alt="CEMECA" />
+                        <area shape="circle" id="area15" class="area" coords="620,760,60" href="Proceso.aspx" title="DIF" alt="DIF" />
+                    </map>
+                    <img src="../img/completo2.png" usemap="#mapa" class="mx-auto d-block" style="width: 900px;" />
+                </asp:Panel>
 
 
             </asp:Panel>
@@ -203,12 +191,9 @@
 
 
 
-
     </form>
 
-    <asp:Panel runat="server" style="width:100%; height: 50px; background: linear-gradient(-135deg, #9d2424, #c80000);">
-
-
+    <asp:Panel runat="server" Style="width: 100%; height: 50px; background: linear-gradient(-135deg, #9d2424, #c80000);">
     </asp:Panel>
 </body>
 </html>
