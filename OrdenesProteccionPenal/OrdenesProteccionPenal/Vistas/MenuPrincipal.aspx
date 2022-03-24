@@ -40,7 +40,7 @@
             }
 
 
-        /* .area {
+        .area {
             background: #fff;
             display: block;
             height: 120px;
@@ -53,86 +53,81 @@
             
 
         #area1 {
-            left: 35px;
-            margin-top: 60px;
+            left: calc(50% - 410px);
+            margin-top: 100px;
         }
-
         #area2 {
-            left: 395px;
-            margin-top: 60px;
+            left: calc(50% - 60px);
+            margin-top: 100px;
         }
-
         #area3 {
-            left: 745px;
-            margin-top: 60px;
+            left: calc(50% + 290px);
+            margin-top: 100px;
         }
 
 
         #area4 {
-            left: 215px;
-            margin-top: 160px;
+            left: calc(50% - 230px);
+            margin-top: 205px;
+        }
+        #area5 {
+            left: calc(50% + 115px);
+            margin-top: 205px;
         }
 
-        #area5 {
-            left: 565px;
-            margin-top: 160px;
-        }
+
 
         #area6 {
-            left: 35px;
-            margin-top: 340px;
+            left: calc(50% - 410px);
+            margin-top: 345px;
         }
-
         #area7 {
-            left: 395px;
-            margin-top: 340px;
+            left: calc(50% - 60px);
+            margin-top: 345px;
+        }
+        #area8 {
+            left: calc(50% + 290px);
+            margin-top: 345px;
         }
 
-        #area8 {
-            left: 745px;
-            margin-top: 340px;
-        }
 
         #area9 {
-            left: 215px;
-            margin-top: 440px;
+            left: calc(50% - 230px);
+            margin-top: 445px;
+        }
+        #area10 {
+            left: calc(50% + 115px);
+            margin-top: 445px;
         }
 
-        #area10 {
-            left: 565px;
-            margin-top: 440px;
-        }
 
         #area11 {
-            left: 35px;
-            margin-top: 600px;
+            left: calc(50% - 410px);
+            margin-top: 582px;
         }
-
         #area12 {
-            left: 395px;
-            margin-top: 600px;
+            left: calc(50% - 60px);
+            margin-top: 582px;
+        }
+        #area13 {
+            left: calc(50% + 290px);
+            margin-top: 582px;
         }
 
-        #area13 {
-            left: 745px;
-            margin-top: 600px;
-        }
 
         #area14 {
-            left: 215px;
-            margin-top: 700px;
+            left: calc(50% - 230px);
+            margin-top: 680px;
         }
-
         #area15 {
-            left: 565px;
-            margin-top: 700px;
+            left: calc(50% + 115px);
+            margin-top: 680px;
         }
 
         #area1:hover, #area2:hover, #area3:hover, #area4:hover, #area5:hover, #area5:hover, #area6:hover, #area7:hover, #area8:hover, 
             #area9:hover, #area10:hover, #area11:hover, #area12:hover, #area13:hover, #area14:hover, #area15:hover {
                 opacity: 0.70;
-                border-style: dotted;
-            } */
+            } 
     </style>
     <form id="form1" runat="server">
 
