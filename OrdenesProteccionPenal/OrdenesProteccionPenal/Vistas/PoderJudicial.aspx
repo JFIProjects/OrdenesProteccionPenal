@@ -34,6 +34,7 @@
             <asp:Panel runat="server" Style="width: 100%; height: 46px; background: linear-gradient(-135deg, #9d2424, #c80000);">
             <asp:Panel runat="server" ID="Menu" class="container">
                 <asp:Panel runat="server" class="row col-xl">
+                    
                   <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
                   <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
                   <asp:Panel runat="server" class="col-sm-2 p-2"></asp:Panel>
@@ -46,6 +47,7 @@
 
 
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
+                <h3><asp:Label runat="server" CssClass="font-weight-bold">PODER JUDICIAL</asp:Label></h3>
         <asp:Panel runat="server" CssClass="row">
             <asp:Panel runat="server" CssClass="row col-xl-12 p-0">
             <asp:Panel runat="server" CssClass="form-group col-xl-6">

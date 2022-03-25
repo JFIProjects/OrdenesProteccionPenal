@@ -170,8 +170,8 @@
                 <asp:Panel runat="server">
                     <map name="mapa">
                         <area shape="circle" id="area1" class="area" coords="100,110,60" href="MenuFiscalia.aspx" title="Fiscalía" alt="Fiscalía" />
-                        <area shape="circle" id="area2" class="area" coords="450,110,60" href="Proceso.aspx" title="Poder Judicial" alt="Poder Judicial" />
-                        <area shape="circle" id="area3" class="area" coords="800,110,60" href="Proceso.aspx" title="CEAVEM" alt="CEAVEM" />
+                        <area shape="circle" id="area2" class="area" coords="450,110,60" href="PoderJudicial.aspx" title="Poder Judicial" alt="Poder Judicial" />
+                        <area shape="circle" id="area3" class="area" coords="800,110,60" href="Ceavem.aspx" title="CEAVEM" alt="CEAVEM" />
                         <area shape="circle" id="area4" class="area" coords="260,210,60" href="Proceso.aspx" title="Secretaría de la Defensa Nacional" alt="Secretaría de la Defensa Nacional" />
                         <area shape="circle" id="area5" class="area" coords="620,210,60" href="Proceso.aspx" title="Secretaría General de Gobierno" alt="Secretaría General de Gobierno" />
                         <area shape="circle" id="area6" class="area" coords="100,400,60" href="Proceso.aspx" title="Dirección de Seguridad (Municipales)" alt="Dirección de Seguridad (Municipales)" />
