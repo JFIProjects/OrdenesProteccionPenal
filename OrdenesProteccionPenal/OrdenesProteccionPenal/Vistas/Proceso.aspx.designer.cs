@@ -22,22 +22,13 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control cerrar.
+        /// Control Menu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton cerrar;
-        
-        /// <summary>
-        /// Control regresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel regresar;
+        protected global::System.Web.UI.WebControls.Panel Menu;
         
         /// <summary>
         /// Control Buttons.
