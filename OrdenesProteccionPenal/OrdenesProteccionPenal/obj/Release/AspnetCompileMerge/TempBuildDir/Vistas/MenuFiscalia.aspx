@@ -141,6 +141,23 @@
 
                 </asp:Panel>
 
+                <asp:Panel runat="server" CssClass="form-group col-xl-6">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="emision">* Fecha Ejecución</asp:Label>
+                    <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
+                        <asp:TextBox ID="TextBox1" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
+                        <asp:Label runat="server" CssClass="input-group-append">
+                            <asp:Label runat="server" ID="Label1" ClientIDMode="Static" CssClass="input-group-text bg-danger">
+                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
+                            </asp:Label>
+                        </asp:Label>
+                    </asp:Panel>
+                    <axT:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="emision" MaskType="Date" Mask="99/99/9999"
+                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                    <axT:MaskedEditValidator ID="MaskedEditValidator1" runat="server" ControlExtender="emision_extender" ControlToValidate="emision" IsValidEmpty="false"
+                        EmptyValueMessage="* Fecha emisión no puede estar vació" InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
+                    <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon"/>
+                </asp:Panel>
+
                 <asp:CheckBox runat="server" ID="situacion_riesgo" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-6" 
                     AutoPostBack="true" Text="Hasta que cese la situación de riesgo" name="riesgo" />
 

@@ -85,15 +85,6 @@ namespace OrdenesProteccionPenal.Vistas {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator expediente_reg_validator;
         
         /// <summary>
-        /// Control medidas_protec.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList medidas_protec;
-        
-        /// <summary>
         /// Control EspecOtro.
         /// </summary>
         /// <remarks>
@@ -281,6 +272,15 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox situacion_riesgo;
+        
+        /// <summary>
+        /// Control medidas_protec.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList medidas_protec;
         
         /// <summary>
         /// Control juicio_panel.

@@ -184,7 +184,7 @@
                         <area shape="circle" id="area13" class="area" coords="800,650,60" href="Proceso.aspx" title="Ayuntamientos municipales" alt="Ayuntamientos municipales" />
                         <area shape="circle" id="area14" class="area" coords="260,760,60" href="Proceso.aspx" title="CEMECA" alt="CEMECA" />
                         <area shape="circle" id="area15" class="area" coords="620,760,60" href="Proceso.aspx" title="DIF" alt="DIF" />
-                        <area shape="circle" id="area16" class="area" coords="450,780,60" href="Proceso.aspx" title="CEAVEM" alt="CEAVEM" />
+                        <area shape="circle" id="area16" class="area" coords="450,780,60" href="Ceavem.aspx" title="CEAVEM" alt="CEAVEM" />
                     </map>
                     <img src="../img/completo3.png" usemap="#mapa" class="mx-auto d-block" style="width: 900px;" />
                 </asp:Panel>

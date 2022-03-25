@@ -79,6 +79,7 @@
     <Content Include="css\Sesion.css" />
     <Content Include="img\completo.png" />
     <Content Include="img\completo2.png" />
+    <Content Include="img\completo3.png" />
     <Content Include="img\Logo_200x60.png" />
     <Content Include="img\completo1.png" />
     <Content Include="img\pjem.png" />
@@ -94,6 +95,7 @@
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\MenuFiscalia.aspx" />
     <Content Include="Vistas\MenuPrincipal.aspx" />
+    <Content Include="Vistas\PoderJudicial.aspx" />
     <Content Include="Vistas\Proceso.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -128,6 +130,13 @@
     </Compile>
     <Compile Include="Vistas\MenuPrincipal.aspx.designer.cs">
       <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\PoderJudicial.aspx.cs">
+      <DependentUpon>PoderJudicial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\PoderJudicial.aspx.designer.cs">
+      <DependentUpon>PoderJudicial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Proceso.aspx.cs">
       <DependentUpon>Proceso.aspx</DependentUpon>
