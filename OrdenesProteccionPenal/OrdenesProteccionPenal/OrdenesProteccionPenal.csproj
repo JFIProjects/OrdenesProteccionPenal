@@ -90,6 +90,7 @@
     <Content Include="PNotify\pnotify.custom.min.css" />
     <Content Include="PNotify\pnotify.custom.min.js" />
     <Content Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
+    <Content Include="Vistas\Ceavem.aspx" />
     <Content Include="Vistas\Login.aspx" />
     <Content Include="Vistas\MenuFiscalia.aspx" />
     <Content Include="Vistas\MenuPrincipal.aspx" />
@@ -100,6 +101,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vistas\Ceavem.aspx.cs">
+      <DependentUpon>Ceavem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Ceavem.aspx.designer.cs">
+      <DependentUpon>Ceavem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -171,7 +171,7 @@
                         <area shape="circle" id="area4" class="area" coords="260,210,60" href="Proceso.aspx" title="Secretaría de la Defensa Nacional" alt="Secretaría de la Defensa Nacional" />
                         <area shape="circle" id="area5" class="area" coords="620,210,60" href="Proceso.aspx" title="Secretaría General de Gobierno" alt="Secretaría General de Gobierno" />
                         <area shape="circle" id="area6" class="area" coords="100,400,60" href="Proceso.aspx" title="Dirección de Seguridad (Municipales)" alt="Dirección de Seguridad (Municipales)" />
-                        <area shape="circle" id="area7" class="area" coords="450,400,60" href="Proceso.aspx" title="CEAVEM" alt="CEAVEM" />
+                        <area shape="circle" id="area7" class="area" coords="450,400,60" href="Ceavem.aspx" title="CEAVEM" alt="CEAVEM" />
                         <area shape="circle" id="area8" class="area" coords="800,400,60" href="Proceso.aspx" title="Instituto de la Función Registral" alt="Instituto de la Función Registral" />
                         <area shape="circle" id="area9" class="area" coords="260,510,60" href="Proceso.aspx" title="Colegio de Notarios y Corredores Públicos" alt="Colegio de Notarios y Corredores Públicos" />
                         <area shape="circle" id="area10" class="area" coords="620,510,60" href="Proceso.aspx" title="Oficialias, Mediadoras" alt="Oficialias, Mediadoras" />
