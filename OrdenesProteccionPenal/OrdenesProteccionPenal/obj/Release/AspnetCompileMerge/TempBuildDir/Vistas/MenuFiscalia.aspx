@@ -47,10 +47,11 @@
 
              
              
-
+            
             
            <%--//-------------------------------------------------------------------------------- SOLICITUD ------------------------------------------------------------------------------------//--%>
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
+                <h3><asp:Label runat="server" CssClass="font-weight-bold">FISCALIA</asp:Label></h3>
         <asp:Panel runat="server" CssClass="row">
 
             <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
@@ -75,10 +76,7 @@
                     InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
             </asp:Panel>--%>
 
-            <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
-                <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec">Medidas de protección</asp:Label>
-                <asp:CheckBoxList runat="server" ID="medidas_protec" CssClass="checkboxlist form-control"  AutoPostBack="true" />
-            </asp:Panel>
+           
 
             <asp:Panel runat="server" ID="EspecOtro" Visible="false" CssClass="form-group col-xl-12 p-0">
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="espec_otro">* Especifique Medida de Protección</asp:Label>
@@ -161,6 +159,11 @@
                 <asp:CheckBox runat="server" ID="situacion_riesgo" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-6" 
                     AutoPostBack="true" Text="Hasta que cese la situación de riesgo" name="riesgo" />
 
+            </asp:Panel>
+
+             <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
+                <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec">Medidas de protección</asp:Label>
+                <asp:CheckBoxList runat="server" ID="medidas_protec" CssClass="checkboxlist form-control"  AutoPostBack="true" />
             </asp:Panel>
 
            <%-- <asp:CheckBox runat="server" ID="juicio" ClientIDMode="Static" CssClass="form-group custom-control custom-switch col-xl-12" 
