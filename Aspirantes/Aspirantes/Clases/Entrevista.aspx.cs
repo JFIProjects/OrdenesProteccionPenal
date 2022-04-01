@@ -741,8 +741,8 @@ namespace Aspirantes.Clases
 
         public void guardarFormacion(Formacion f) 
         {
-            string b;
-            b = (String)Session["idaspirante"];
+            int b;
+            b = (int)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -845,8 +845,8 @@ namespace Aspirantes.Clases
 
         public void guardarTribunal(Tribunal t)
         {
-            string b;
-            b = (String)Session["idaspirante"];
+            int b;
+            b = (int)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -924,8 +924,8 @@ namespace Aspirantes.Clases
 
         public void guardarExperiencia(Experiencia e)
         {
-            string b;
-            b = (String)Session["idaspirante"];
+            int b;
+            b = (int)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -950,8 +950,8 @@ namespace Aspirantes.Clases
 
         public void guardarConocimientos(Conocimientos c)
         {
-            string b;
-            b = (String)Session["idaspirante"];
+            int b;
+            b = (int)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -976,8 +976,8 @@ namespace Aspirantes.Clases
 
         public void guardarAspectosCualitativos(AspCualitativo a)
         {
-            string b;
-            b = (String)Session["idaspirante"];
+            int b;
+            b = (int)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
