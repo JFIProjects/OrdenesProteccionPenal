@@ -86,7 +86,12 @@
     <Compile Include="Clases\Entrevista.aspx.designer.cs">
       <DependentUpon>Entrevista.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\AspCualitativo.cs" />
+    <Compile Include="Modelos\Conocimientos.cs" />
     <Compile Include="Modelos\Entrevista.cs" />
+    <Compile Include="Modelos\Experiencia.cs" />
+    <Compile Include="Modelos\Formacion.cs" />
+    <Compile Include="Modelos\Tribunal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
