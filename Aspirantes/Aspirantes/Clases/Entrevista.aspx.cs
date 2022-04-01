@@ -741,7 +741,8 @@ namespace Aspirantes.Clases
 
         public void guardarFormacion(Formacion f) 
         {
-            int b = 0;
+            string b;
+            b = (String)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -755,6 +756,7 @@ namespace Aspirantes.Clases
 
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado: "+idRegistro);
+
                 con.Close();
             }
             catch (MySqlException e)
@@ -765,7 +767,8 @@ namespace Aspirantes.Clases
 
         public void guardarTribunal(Tribunal t)
         {
-            int b = 0;
+            string b;
+            b = (String)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -789,7 +792,8 @@ namespace Aspirantes.Clases
 
         public void guardarExperiencia(Experiencia e)
         {
-            int b = 0;
+            string b;
+            b = (String)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -814,7 +818,8 @@ namespace Aspirantes.Clases
 
         public void guardarConocimientos(Conocimientos c)
         {
-            int b = 0;
+            string b;
+            b = (String)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -839,7 +844,8 @@ namespace Aspirantes.Clases
 
         public void guardarAspectosCualitativos(AspCualitativo a)
         {
-            int b = 0;
+            string b;
+            b = (String)Session["idaspirante"];
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);

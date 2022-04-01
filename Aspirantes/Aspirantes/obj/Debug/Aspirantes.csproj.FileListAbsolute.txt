@@ -7,3 +7,12 @@ C:\Users\M Alberto González V\source\repos\Aspirantes\Aspirantes\obj\Debug\Aspi
 C:\Users\M Alberto González V\source\repos\Aspirantes\Aspirantes\obj\Debug\Aspirantes.pdb
 C:\Users\M Alberto González V\source\repos\Aspirantes\Aspirantes\bin\MySql.Data.dll
 C:\Users\M Alberto González V\source\repos\Aspirantes\Aspirantes\obj\Debug\Aspirantes.csproj.CopyComplete
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\bin\Aspirantes.dll.config
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\bin\Aspirantes.dll
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\bin\Aspirantes.pdb
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\bin\AjaxControlToolkit.dll
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Debug\Aspirantes.csproj.CoreCompileInputs.cache
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Debug\Aspirantes.csproj.CopyComplete
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Debug\Aspirantes.dll
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Debug\Aspirantes.pdb
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Debug\Aspirantes.csprojAssemblyReference.cache
