@@ -858,6 +858,60 @@ namespace Aspirantes.Clases
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado Tribunal: " + idRegistro);
                 con.Close();
+                guardarTribunalParentezco(t.Pregunta3, Convert.ToInt32(idRegistro), b);
+                guardarTribunalCargo(t.Pregunta4, Convert.ToInt32(idRegistro), b);
+
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+        }
+
+
+        public void guardarTribunalParentezco(List<int> lista, int idRegistro, int aspirante)
+        {
+            String valores = "";
+            foreach (var id in lista)
+            {
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+            }
+            valores = valores.TrimEnd(',');
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                String query = " INSERT INTO tblparentesco (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd = new MySqlCommand(query, con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+        }
+
+        public void guardarTribunalCargo(List<int> lista, int idRegistro, int aspirante)
+        {
+            String valores = "";
+            foreach (var id in lista)
+            {
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+            }
+            valores = valores.TrimEnd(',');
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                String query = " INSERT INTO tblcargo (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd = new MySqlCommand(query, con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
             catch (MySqlException e)
             {
