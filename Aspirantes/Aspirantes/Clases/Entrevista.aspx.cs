@@ -758,6 +758,84 @@ namespace Aspirantes.Clases
                 Console.WriteLine("id guardado: "+idRegistro);
 
                 con.Close();
+
+                guardarFormacionPregunta2(f.Pregunta2, Convert.ToInt32(idRegistro), b);
+                guardarFormacionPregunta3(f.Pregunta3, Convert.ToInt32(idRegistro), b);
+                guardarFormacionPregunta4(f.Pregunta4, Convert.ToInt32(idRegistro), b);
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+        }
+
+        public void guardarFormacionPregunta2(List<int> lista, int idRegistro ,int aspirante)
+        {
+            String valores = "";
+            foreach (var id in lista ) {
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+            }
+            valores = valores.TrimEnd(',');
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                String query = " INSERT INTO tblinteres (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES "+ valores;
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd = new MySqlCommand(query, con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+        }
+
+        public void guardarFormacionPregunta3(List<int> lista, int idRegistro, int aspirante)
+        {
+            String valores = "";
+            foreach (var id in lista)
+            {
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+            }
+            valores = valores.TrimEnd(',');
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                String query = " INSERT INTO tblmotivo (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd = new MySqlCommand(query, con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+        }
+
+        public void guardarFormacionPregunta4(List<int> lista, int idRegistro, int aspirante)
+        {
+            String valores = "";
+            foreach (var id in lista)
+            {
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+            }
+            valores = valores.TrimEnd(',');
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                String query = " INSERT INTO tblaportacion (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd = new MySqlCommand(query, con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
             catch (MySqlException e)
             {
