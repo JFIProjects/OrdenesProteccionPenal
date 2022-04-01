@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clases\Entrevista.aspx" />
+    <Content Include="Css\Sesion.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -95,7 +96,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Css\" />
     <Folder Include="Img\" />
   </ItemGroup>
   <PropertyGroup>

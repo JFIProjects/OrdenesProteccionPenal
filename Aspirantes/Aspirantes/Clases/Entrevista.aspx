@@ -22,10 +22,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
 <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/start/jquery-ui.css"
-    rel="stylesheet" type="text/css" /
+    rel="stylesheet" type="text/css" />
      <script src="../PNotify/pnotify.custom.min.js"></script>
 
-                        <script type="text/javascript">
+                        <%--<script type="text/javascript">
                             var selected_tab = 1;
                             $(function () {
                                 var tabs = $("#tabs").tabs({
@@ -39,7 +39,7 @@
                                     $("[id$=selected_tab]").val(selected_tab);
                                 });
                             });
-                        </script>
+                        </script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -147,27 +147,22 @@
 
 
                 
-
-
-
-                </asp:Panel>        
-        </div>
-        </ContentTemplate>
-        </asp:UpdatePanel>
-
                 <asp:Panel runat="server" class="container">
                 <asp:Panel runat="server" ID="entrevista">
                         <asp:Panel runat="server">
 
-        <asp:Panel runat="server" id="tabs" Style="border: none !important;">
-            <ul>
-                <li><a href="#tabs1">Formación complementaria e intereses</a></li>
-                <li><a href="#tabs2">Información relacionada con el Tribunal</a></li>
-                <li><a href="#tabs3">Experiencia Profesional</a></li>
-                <li><a href="#tabs4">Conocimientos en la materia de interés</a></li>
-                <li><a href="#tabs5">Aspectos cualitativos de la información</a></li>
+        <asp:Panel runat="server" id="tabs">
+
+            <ul class="nav nav-tabs" style="background-color: #9d2424;">
+                <li class="nav-item"><a style="color: white;text-decoration:none;" class="nav-link active" data-toggle="tab" href="#tabs1">Formación complementaria e intereses</a></li>
+                <li class="nav-item"><a style="color: white;text-decoration:none;" class="nav-link " data-toggle="tab" href="#tabs2">Información relacionada con el Tribunal</a></li>
+                <li class="nav-item"><a style="color: white;text-decoration:none;" class="nav-link " data-toggle="tab" href="#tabs3">Experiencia Profesional</a></li>
+                <li class="nav-item"><a style="color: white;text-decoration:none;" class="nav-link " data-toggle="tab" href="#tabs4">Conocimientos en la materia de interés</a></li>
+                <li class="nav-item"><a style="color: white;text-decoration:none;" class="nav-link " data-toggle="tab" href="#tabs5">Aspectos cualitativos de la información</a></li>
             </ul>
-            <asp:Panel runat="server" ID="tabs1">
+
+            <div class="tab-content">
+            <asp:Panel runat="server" ID="tabs1" class="container tab-pane active">
                 <h2>Formación complementaria e intereses</h2> <br />
 
                         <asp:Label ID="Label19" runat="server" Text="Rama o materia de interés"></asp:Label>
@@ -208,7 +203,7 @@
                                 </asp:DropDownList>
                 </asp:Panel>
             </asp:Panel>
-            <asp:Panel runat="server" ID="tabs2">
+            <asp:Panel runat="server" ID="tabs2" class="container tab-pane fade">
                  <h2>Información relacionada con el Tribunal</h2> <br />
 
                 <asp:Panel runat="server" class="form-group col-md-12">
@@ -242,7 +237,7 @@
 
 
             </asp:Panel>
-            <asp:Panel runat="server" ID="tabs3">
+            <asp:Panel runat="server" ID="tabs3" class="container tab-pane fade">
                  <h2>Experiencia Profesional</h2>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
@@ -267,7 +262,7 @@
                 </asp:Panel>
         
             </asp:Panel>
-            <asp:Panel runat="server" ID="tabs4">
+            <asp:Panel runat="server" ID="tabs4" class="container tab-pane fade">
                  <h2>Conocimientos en la materia de interés</h2>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
@@ -297,7 +292,7 @@
                     </asp:DropDownList>
                 </asp:Panel>
             </asp:Panel>
-            <asp:Panel runat="server" ID="tabs5">
+            <asp:Panel runat="server" ID="tabs5" class="container tab-pane fade">
                  <h2>Aspectos cualitativos de la información</h2>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
@@ -335,6 +330,7 @@
                     </asp:DropDownList>
                 </asp:Panel>
             </asp:Panel>
+                </div>
 
         </asp:Panel>
         <asp:HiddenField ID="selected_tab" runat="server" />
@@ -345,6 +341,14 @@
                         </asp:Panel>
                     </asp:Panel>
                     </asp:Panel>
+
+
+                </asp:Panel>        
+        </div>
+        </ContentTemplate>
+        </asp:UpdatePanel>
+
+                
     </form>
 </body>
 </html>
