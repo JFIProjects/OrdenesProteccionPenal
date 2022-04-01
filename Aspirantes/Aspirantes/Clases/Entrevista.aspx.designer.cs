@@ -220,6 +220,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.Panel tabs1;
         
         /// <summary>
+        /// Control Label19.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label19;
+        
+        /// <summary>
         /// Control DropdownBoxMateria.
         /// </summary>
         /// <remarks>
@@ -244,7 +253,7 @@ namespace Aspirantes.Clases {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBox2;
+        protected global::System.Web.UI.WebControls.CheckBoxList listBox2;
         
         /// <summary>
         /// Control Label2.
@@ -262,7 +271,7 @@ namespace Aspirantes.Clases {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBox3;
+        protected global::System.Web.UI.WebControls.CheckBoxList listBox3;
         
         /// <summary>
         /// Control TextBox1.
@@ -289,7 +298,7 @@ namespace Aspirantes.Clases {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBox4;
+        protected global::System.Web.UI.WebControls.CheckBoxList listBox4;
         
         /// <summary>
         /// Control TextBox2.
@@ -361,7 +370,7 @@ namespace Aspirantes.Clases {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBoxParentezco;
+        protected global::System.Web.UI.WebControls.CheckBoxList listBoxParentezco;
         
         /// <summary>
         /// Control LabelNombre.
@@ -397,7 +406,7 @@ namespace Aspirantes.Clases {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBoxCargo;
+        protected global::System.Web.UI.WebControls.CheckBoxList listBoxCargo;
         
         /// <summary>
         /// Control TextBox4.

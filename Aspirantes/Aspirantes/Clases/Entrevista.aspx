@@ -170,30 +170,34 @@
             <asp:Panel runat="server" ID="tabs1">
                 <h2>Formación complementaria e intereses</h2> <br />
 
+                        <asp:Label ID="Label19" runat="server" Text="Rama o materia de interés"></asp:Label>
                         <asp:DropDownList ID="DropdownBoxMateria" runat="server" AppendDataBoundItems="true" class="form-control">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
 
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label1" runat="server" Text="¿Qué formación complementaria ha tenido relacionada con la materia (mencionar la materia de interés)?"></asp:Label>
-                    <asp:ListBox ID="listBox2" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
+                    <%--<asp:ListBox ID="listBox2" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
-                    </asp:ListBox>
+                    </asp:ListBox>--%>
+                     <asp:CheckBoxList runat="server" ID="listBox2" CssClass="checkboxlist form-control" />
                 </asp:Panel>
 
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label2" runat="server" Text="¿Qué lo motiva a querer formar parte del grupo de meritorios para el Poder Judicial del Estado de México?"></asp:Label>
-                    <asp:ListBox ID="listBox3" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
+                    <%--<asp:ListBox ID="listBox3" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
-                    </asp:ListBox>
+                    </asp:ListBox>--%>
+                     <asp:CheckBoxList runat="server" ID="listBox3" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox1" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
                 </asp:Panel>
 
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label3" runat="server" Text="¿Cuál considera que sería su aportación al Poder Judicial al incorporarse al grupo de Meritorios?"></asp:Label>
-                    <asp:ListBox ID="listBox4" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
+                    <%--<asp:ListBox ID="listBox4" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
-                    </asp:ListBox>
+                    </asp:ListBox>--%>
+                     <asp:CheckBoxList runat="server" ID="listBox4" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox2" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
                 </asp:Panel>
 
@@ -216,9 +220,10 @@
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label6" runat="server" Text="Parentezco"></asp:Label>
-                    <asp:ListBox ID="listBoxParentezco" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
+                    <%--<asp:ListBox ID="listBoxParentezco" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
-                    </asp:ListBox>
+                    </asp:ListBox>--%>
+                    <asp:CheckBoxList runat="server" ID="listBoxParentezco" CssClass="checkboxlist form-control" />
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
@@ -228,9 +233,10 @@
         
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label7" runat="server" Text="Cargo"></asp:Label>
-                    <asp:ListBox ID="listBoxCargo" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
+                    <%--<asp:ListBox ID="listBoxCargo" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
-                    </asp:ListBox>
+                    </asp:ListBox>--%>
+                    <asp:CheckBoxList runat="server" ID="listBoxCargo" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox4" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
                 </asp:Panel>
 
