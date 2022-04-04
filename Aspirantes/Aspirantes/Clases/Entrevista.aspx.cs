@@ -150,6 +150,7 @@ namespace Aspirantes.Clases
             panelExpediente.Visible = false;
             panelBusqueda.Visible = true;
             busqueda.Text = "";
+            limpiarCampos();
         }
 
         public void obtenerMateria()
@@ -1022,6 +1023,33 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+        }
+
+        public void limpiarCampos()
+        {
+            DropdownBoxMateria.SelectedValue = "-1";
+            listBox2.ClearSelection();
+            listBox3.ClearSelection();
+            listBox4.ClearSelection();
+            DropDownPregunta5.SelectedValue = "-1";
+            DropDownList1.SelectedValue = "-1";
+            listBoxParentezco.ClearSelection();
+            texNombrep1.Text = "";
+            TextBox4.Text = "";
+            DropDownList2.SelectedValue = "-1";
+            DropDownList3.SelectedValue = "-1";
+            DropDownList4.SelectedValue = "-1";
+            TextBoxPregunta1.Text = "";
+            DropDownList5.SelectedValue = "-1";
+            TextBoxPregunta2.Text = "";
+            DropDownList6.SelectedValue = "-1";
+            TextBoxPregunta3.Text = "";
+            DropDownList7.SelectedValue = "-1";
+            DropDownList8.SelectedValue = "-1";
+            DropDownList9.SelectedValue = "-1";
+            DropDownList10.SelectedValue = "-1";
+            DropDownList11.SelectedValue = "-1";
+            DropDownList12.SelectedValue = "-1";
         }
 
     }
