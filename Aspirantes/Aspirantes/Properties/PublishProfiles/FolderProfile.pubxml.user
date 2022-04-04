@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>\\10.22.157.155\Servidor_DI&amp;E\2018\Publicaciones\AspirantesEntrevista</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>05/20/2020 14:04:00</publishTime>
+    </File>
+    <File Include="bin/Aspirantes.dll">
+      <publishTime>04/01/2022 17:27:10</publishTime>
+    </File>
+    <File Include="bin/Aspirantes.pdb">
+      <publishTime>04/01/2022 17:27:10</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>09/04/2018 13:34:56</publishTime>
+    </File>
+    <File Include="Clases/Entrevista.aspx">
+      <publishTime>04/01/2022 17:22:55</publishTime>
+    </File>
+    <File Include="Css/Sesion.css">
+      <publishTime>04/01/2022 17:23:07</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/01/2022 17:27:11</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
