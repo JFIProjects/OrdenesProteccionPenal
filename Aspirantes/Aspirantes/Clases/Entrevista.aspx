@@ -202,6 +202,13 @@
                                     <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
+
+               
+
+                <asp:LinkButton runat="server" ID="LinkButtonFormacion" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonFormacion_Click" Visible="true">Guardar</asp:LinkButton>
+
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs2" class="container tab-pane fade">
                  <h2>Información relacionada con el Tribunal</h2> <br />
@@ -234,7 +241,10 @@
                     <asp:CheckBoxList runat="server" ID="listBoxCargo" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox4" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
                 </asp:Panel>
-
+                
+                <asp:LinkButton runat="server" ID="LinkButtonTribunal" AutoPostBack="true"  CssClass="btn  btn-primary"
+                                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                                        OnClick="LinkButtonTribunal_Click" Visible="true">Guardar</asp:LinkButton>
 
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs3" class="container tab-pane fade">
@@ -260,6 +270,10 @@
                                     <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButton1" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonExperiencia_Click" Visible="true">Guardar</asp:LinkButton>
         
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs4" class="container tab-pane fade">
@@ -291,6 +305,10 @@
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButtonConocimientos" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonConocimientos_Click" Visible="true">Guardar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs5" class="container tab-pane fade">
                  <h2>Aspectos cualitativos de la información</h2>
@@ -329,14 +347,18 @@
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButtonAspectos" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonAspectos_Click" Visible="true">Guardar</asp:LinkButton>
             </asp:Panel>
                 </div>
 
         </asp:Panel>
         <asp:HiddenField ID="selected_tab" runat="server" />
-         <asp:LinkButton runat="server" ID="LinkButtonG" AutoPostBack="true"  CssClass="btn  btn-primary"
+<%--         <asp:LinkButton runat="server" ID="LinkButtonG" AutoPostBack="true"  CssClass="btn  btn-primary"
                         style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
-                        OnClick="LinkButtonG_Click" Visible="true">Guardar</asp:LinkButton>
+                        OnClick="LinkButtonG_Click" Visible="false">Guardar</asp:LinkButton>--%>
  
                         </asp:Panel>
                     </asp:Panel>

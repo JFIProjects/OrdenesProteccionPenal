@@ -85,7 +85,7 @@ namespace Aspirantes.Clases
             panelBusqueda.Visible = false;
             panelExpediente.Visible = true;
             tag.Text = nombre.Text;
-            limpiaEntrevista();
+
         }
 
        
@@ -150,31 +150,6 @@ namespace Aspirantes.Clases
             panelExpediente.Visible = false;
             panelBusqueda.Visible = true;
             busqueda.Text = "";
-
-
-            DropdownBoxMateria.DataValueField = "-1";
-            listBox2.Items.Clear();
-            listBox3.Items.Clear();
-            listBox4.Items.Clear();
-            DropDownPregunta5.DataValueField = "-1";
-            DropDownList1.DataValueField = "-1";
-            listBoxParentezco.Items.Clear();
-            texNombrep1.Text = "";
-            TextBox4.Text = "";
-            DropDownList2.DataValueField = "-1";
-            DropDownList3.DataValueField = "-1";
-            DropDownList4.DataValueField = "-1";
-            TextBoxPregunta1.Text = "";
-            DropDownList5.DataValueField = "-1";
-            TextBoxPregunta2.Text = "";
-            DropDownList6.DataValueField = "-1";
-            TextBoxPregunta3.Text = "";
-            DropDownList7.DataValueField = "-1";
-            DropDownList8.DataValueField = "-1";
-            DropDownList9.DataValueField = "-1";
-            DropDownList10.DataValueField = "-1";
-            DropDownList11.DataValueField = "-1";
-            DropDownList12.DataValueField = "-1";
         }
 
         public void obtenerMateria()
@@ -660,10 +635,35 @@ namespace Aspirantes.Clases
         protected void LinkButtonG_Click(object sender, EventArgs e)
         {
 
-            guardarFormacion(informacionFormacion());
+            /*guardarFormacion(informacionFormacion());
             guardarTribunal(informacionTribunal());
             guardarExperiencia(informacionExperiencia());
             guardarConocimientos(informacionConocimientos());
+            guardarAspectosCualitativos(informacionAspectosCualitativos());*/
+        }
+
+        protected void LinkButtonFormacion_Click(object sender, EventArgs e)
+        {
+            guardarFormacion(informacionFormacion());
+        }
+
+        protected void LinkButtonTribunal_Click(object sender, EventArgs e)
+        {
+            guardarTribunal(informacionTribunal());
+        }
+
+        protected void LinkButtonExperiencia_Click(object sender, EventArgs e)
+        {
+            guardarExperiencia(informacionExperiencia());
+        }
+
+        protected void LinkButtonConocimientos_Click(object sender, EventArgs e)
+        {
+            guardarConocimientos(informacionConocimientos());
+        }
+
+        protected void LinkButtonAspectos_Click(object sender, EventArgs e)
+        {
             guardarAspectosCualitativos(informacionAspectosCualitativos());
         }
 
@@ -767,7 +767,7 @@ namespace Aspirantes.Clases
         public void guardarFormacion(Formacion f) 
         {
             int b;
-            b = (int)Session["idaspirante"];
+            b = Convert.ToInt32(Session["idaspirante"]);;
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -871,7 +871,7 @@ namespace Aspirantes.Clases
         public void guardarTribunal(Tribunal t)
         {
             int b;
-            b = (int)Session["idaspirante"];
+            b = Convert.ToInt32(Session["idaspirante"]);;
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -950,7 +950,7 @@ namespace Aspirantes.Clases
         public void guardarExperiencia(Experiencia e)
         {
             int b;
-            b = (int)Session["idaspirante"];
+            b = Convert.ToInt32(Session["idaspirante"]);;
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -976,7 +976,7 @@ namespace Aspirantes.Clases
         public void guardarConocimientos(Conocimientos c)
         {
             int b;
-            b = (int)Session["idaspirante"];
+            b = Convert.ToInt32(Session["idaspirante"]);;
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -1002,7 +1002,7 @@ namespace Aspirantes.Clases
         public void guardarAspectosCualitativos(AspCualitativo a)
         {
             int b;
-            b = (int)Session["idaspirante"];
+            b = Convert.ToInt32(Session["idaspirante"]);;
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
@@ -1023,31 +1023,6 @@ namespace Aspirantes.Clases
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
-        public void limpiaEntrevista()
-        {
-            DropdownBoxMateria.ClearSelection();
-            listBox2.ClearSelection();
-            listBox3.ClearSelection();
-            listBox4.ClearSelection();
-            DropDownPregunta5.ClearSelection();
-            DropDownList1.ClearSelection();
-            listBoxParentezco.ClearSelection();
-            texNombrep1.Text = "";
-            TextBox4.Text = "";
-            DropDownList2.ClearSelection();
-            DropDownList3.ClearSelection();
-            DropDownList4.ClearSelection();
-            TextBoxPregunta1.Text = "";
-            DropDownList5.ClearSelection();
-            TextBoxPregunta2.Text = "";
-            DropDownList6.ClearSelection();
-            TextBoxPregunta3.Text = "";
-            DropDownList7.ClearSelection();
-            DropDownList8.ClearSelection();
-            DropDownList9.ClearSelection();
-            DropDownList10.ClearSelection();
-            DropDownList11.ClearSelection();
-            DropDownList12.ClearSelection();
-        }
+
     }
 }
