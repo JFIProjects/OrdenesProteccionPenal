@@ -45,13 +45,15 @@ namespace Aspirantes.Clases
                 "timestampdiff(year, a.fechaNacimiento, now()) edad,e.desEstadoCivil edoCivil, concat(a.calle, ',', a.numExt, ',', a.cp, ',', a.poblacion) direccion, " +
                 "a.telefono telFijo, a.celular telMovil, a.email correo, " +
                 "c.desCarrera licenciatura,es.institucion universidad,es.numPeriodosCursados periodos,promedio promedio " +
+                " , IFNULL(a.cveEstatus , -100 ) estatus  , f.idmateria materia, f.idgeneral  " +
                 "from tblcm_aspirantes a " +
                 "inner " +
                 "join tblestadosciviles e on a.cveEstadoCivil = e.cveEstadoCivil " +
                 "inner join tblcm_escolaridad es on a.idAspirante = es.idAspirante " +
                 "inner join tblcarreras c on es.cveCarreraAfin = c.cveCarrera " +
-                "where a.idAspirante= " + b + " and a.activo = 'S' ";
-
+                " LEFT join tblformacioncomplementariaintereses f  ON f.idAspirante = a.idAspirante  " +
+                "where a.idAspirante= " + b + " and a.activo = 'S'  ;";
+                
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
 
@@ -59,18 +61,30 @@ namespace Aspirantes.Clases
 
                 while (r.Read())
                 {
-                    nombre.Text = r.GetString("nombre");
-                    fecNac.Text = r.GetString("fechaNacimiento");
-                    edad.Text = r.GetString("edad");
-                    edoCivil.Text = r.GetString("edoCivil");
-                    direccion.Text = r.GetString("direccion");
-                    telFijo.Text = r.GetString("telFijo");
-                    telMovil.Text = r.GetString("telMovil");
-                    correo.Text = r.GetString("correo");
-                    licen.Text = r.GetString("licenciatura");
-                    uni.Text = r.GetString("universidad");
-                    semestre.Text = r.GetString("periodos");
-                    porc.Text = r.GetString("promedio");
+                    int estatus = Convert.ToInt32(r.GetString("estatus"));
+                    if (estatus != 345)
+                    {
+                        nombre.Text = r.GetString("nombre");
+                        fecNac.Text = r.GetString("fechaNacimiento");
+                        edad.Text = r.GetString("edad");
+                        edoCivil.Text = r.GetString("edoCivil");
+                        direccion.Text = r.GetString("direccion");
+                        telFijo.Text = r.GetString("telFijo");
+                        telMovil.Text = r.GetString("telMovil");
+                        correo.Text = r.GetString("correo");
+                        licen.Text = r.GetString("licenciatura");
+                        uni.Text = r.GetString("universidad");
+                        semestre.Text = r.GetString("periodos");
+                        porc.Text = r.GetString("promedio");
+                        string valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
+                        DropdownBoxMateria.SelectedValue = valorMateria;
+                        validarExisteInformacion(valorMateria);
+                    }
+                    else if (estatus == 345)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('INFORMACIÓN','El aspirante fue rechazado.','error');", true);
+                    }
+
                 }
 
                 con.Dispose();
@@ -88,7 +102,20 @@ namespace Aspirantes.Clases
 
         }
 
-       
+        public void validarExisteInformacion(String materia) {
+            Boolean bandera = false;
+            if (materia.Equals("")) {
+                bandera = true;
+            }
+            LinkButtonFormacion.Enabled = bandera;
+            LinkButtonTribunal.Enabled = bandera;
+            LinkButtonExperiencia.Enabled = bandera;
+            LinkButtonConocimientos.Enabled = bandera;
+            LinkButtonAspectos.Enabled = bandera;
+
+        }
+
+
 
         [System.Web.Script.Services.ScriptMethod()]
         [System.Web.Services.WebMethod]
@@ -788,9 +815,14 @@ namespace Aspirantes.Clases
                 guardarFormacionPregunta2(f.Pregunta2, Convert.ToInt32(idRegistro), b);
                 guardarFormacionPregunta3(f.Pregunta3, Convert.ToInt32(idRegistro), b);
                 guardarFormacionPregunta4(f.Pregunta4, Convert.ToInt32(idRegistro), b);
+
+                if (idRegistro > 0) {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
@@ -890,9 +922,16 @@ namespace Aspirantes.Clases
                 guardarTribunalParentezco(t.Pregunta3, Convert.ToInt32(idRegistro), b);
                 guardarTribunalCargo(t.Pregunta4, Convert.ToInt32(idRegistro), b);
 
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
+
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
+
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
@@ -916,9 +955,14 @@ namespace Aspirantes.Clases
 
                 cmd.ExecuteNonQuery();
                 con.Close();
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
@@ -941,9 +985,14 @@ namespace Aspirantes.Clases
 
                 cmd.ExecuteNonQuery();
                 con.Close();
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
@@ -966,9 +1015,15 @@ namespace Aspirantes.Clases
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado: " + idRegistro);
                 con.Close();
+                
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException ex)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + ex.Message);
             }
         }
@@ -992,9 +1047,15 @@ namespace Aspirantes.Clases
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado Conocimientos: " + idRegistro);
                 con.Close();
+
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
@@ -1018,9 +1079,15 @@ namespace Aspirantes.Clases
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado: " + idRegistro);
                 con.Close();
+
+                if (idRegistro > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
+                }
             }
             catch (MySqlException e)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
         }
