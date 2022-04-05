@@ -382,6 +382,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
+        /// Control DropDownList1_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList1_validator;
+        
+        /// <summary>
         /// Control Label6.
         /// </summary>
         /// <remarks>
@@ -416,6 +425,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox texNombrep1;
+        
+        /// <summary>
+        /// Control texNombrep1_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator texNombrep1_validator;
         
         /// <summary>
         /// Control Label7.
@@ -481,6 +499,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
+        /// Control DropDownList2_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList2_validator;
+        
+        /// <summary>
         /// Control Label9.
         /// </summary>
         /// <remarks>
@@ -499,6 +526,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
+        /// Control DropDownList3_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList3_validator;
+        
+        /// <summary>
         /// Control Label10.
         /// </summary>
         /// <remarks>
@@ -515,6 +551,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        
+        /// <summary>
+        /// Control DropDownList4_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList4_validator;
         
         /// <summary>
         /// Control LinkButtonExperiencia.
@@ -553,6 +598,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPregunta1;
         
         /// <summary>
+        /// Control TextBoxPregunta1_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextBoxPregunta1_validator;
+        
+        /// <summary>
         /// Control DropDownList5.
         /// </summary>
         /// <remarks>
@@ -560,6 +614,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        
+        /// <summary>
+        /// Control DropDownList5_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList5_validator;
         
         /// <summary>
         /// Control Label12.
@@ -580,6 +643,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPregunta2;
         
         /// <summary>
+        /// Control TextBoxPregunta2_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextBoxPregunta2_validator;
+        
+        /// <summary>
         /// Control DropDownList6.
         /// </summary>
         /// <remarks>
@@ -587,6 +659,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        
+        /// <summary>
+        /// Control DropDownList6_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList6_validator;
         
         /// <summary>
         /// Control Label13.
@@ -607,6 +688,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPregunta3;
         
         /// <summary>
+        /// Control TextBoxPregunta3_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TextBoxPregunta3_validator;
+        
+        /// <summary>
         /// Control DropDownList7.
         /// </summary>
         /// <remarks>
@@ -614,6 +704,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList7;
+        
+        /// <summary>
+        /// Control DropDownList7_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList7_validator;
         
         /// <summary>
         /// Control LinkButtonConocimientos.
@@ -652,6 +751,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList8;
         
         /// <summary>
+        /// Control DropDownList8_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList8_validator;
+        
+        /// <summary>
         /// Control Label15.
         /// </summary>
         /// <remarks>
@@ -668,6 +776,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList9;
+        
+        /// <summary>
+        /// Control DropDownList9_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList9_validator;
         
         /// <summary>
         /// Control Label16.
@@ -688,6 +805,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList10;
         
         /// <summary>
+        /// Control DropDownList10_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList10_validator;
+        
+        /// <summary>
         /// Control Label17.
         /// </summary>
         /// <remarks>
@@ -706,6 +832,15 @@ namespace Aspirantes.Clases {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList11;
         
         /// <summary>
+        /// Control DropDownList11_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList11_validator;
+        
+        /// <summary>
         /// Control Label18.
         /// </summary>
         /// <remarks>
@@ -722,6 +857,15 @@ namespace Aspirantes.Clases {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList12;
+        
+        /// <summary>
+        /// Control DropDownList12_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DropDownList12_validator;
         
         /// <summary>
         /// Control LinkButtonAspectos.
