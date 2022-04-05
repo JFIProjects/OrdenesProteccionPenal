@@ -34,6 +34,7 @@ namespace Aspirantes.Clases
             String b;
             b = busqueda.Text;
             b = (b.Split(':'))[0];
+            string valorMateria = "";
 
             Session["idaspirante"] = b;
 
@@ -81,6 +82,7 @@ namespace Aspirantes.Clases
                             DropdownBoxMateria.SelectedValue = valorMateria;
                         
                         validarExisteInformacion(valorMateria);
+                       
                     }
                     else if (estatus == 345)
                     {
@@ -92,6 +94,9 @@ namespace Aspirantes.Clases
                 con.Dispose();
                 con.Close();
 
+                if (!valorMateria.Equals("")) {
+                    PreparaCargaForms3();
+                }
             }
             catch (MySqlException ex)
             {
