@@ -55,6 +55,10 @@
                 
                     <asp:Label runat="server" CssClass="" Style="font-weight: bold;">Buscar Aspirante</asp:Label>
                     <asp:Panel runat="server" ID="Panel1" CssClass="row">
+                     <asp:Panel runat="server" class="col-sm-12" ID="cerrarsesion">
+                    <asp:LinkButton runat="server" ID="cerrar"
+                        Font-Size="20px" OnClick="btnCerrar_Click" Visible="true" Style="font-size: 16px;" class="btn btn-dark float-right">Cerrar Sesión</asp:LinkButton>
+                </asp:Panel>
                            
                     <asp:Panel runat="server" CssClass="input-group mb-3 col-8" Visible="true" ID="panelBusqueda">
                       <asp:TextBox runat="server" ID="busqueda" CssClass="form-control" ToolTip="Search" Height="50px"/>
@@ -409,7 +413,7 @@
 
                 
     </form>
-
+    <br />
     <asp:Panel runat="server" Style="width: 100%; height: 50px; background: linear-gradient(-135deg, #9d2424, #c80000);">
     </asp:Panel>
 </body>

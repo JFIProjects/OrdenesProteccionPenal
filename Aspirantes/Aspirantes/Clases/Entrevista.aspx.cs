@@ -11,15 +11,18 @@ using System.Web.UI.WebControls;
 namespace Aspirantes.Clases
 {
     public partial class Entrevista : System.Web.UI.Page
-    {
-        
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (Session["userEnt"] is null)
                 {
-                    //Response.Redirect("Login.aspx");
+                    Response.Redirect("Login.aspx");
+                }
+                else {
+                    Dictionary<String, String> d = (Dictionary<String, String>)Session["userEnt"];
+                    Session["idUsuario"] = Convert.ToInt32(d["idUsuario"]);
                 }
                 obtenerCatalogo();
                 bloquearCampos();
@@ -32,7 +35,14 @@ namespace Aspirantes.Clases
 
         }
 
-       
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
+
+
 
         public void PreparaCarga(object sender, EventArgs e)
         {
@@ -137,7 +147,6 @@ namespace Aspirantes.Clases
             string query = "select idgeneral id from tblinteres where idaspirante = " + b + " ";
 
             MySqlCommand cmd = new MySqlCommand(query, con);
-
 
             MySqlDataReader r = cmd.ExecuteReader();
 
@@ -1175,12 +1184,13 @@ namespace Aspirantes.Clases
         {
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);;
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = "INSERT INTO tblformacioncomplementariaintereses(idmateria,idaspirante,idgeneral,fecharegistro,activo) VALUES "
-                    +" ( " + f.Materia + " , "+ b + " , " +f.Pregunta5 + ", NOW() , 1 )";
+                String query = "INSERT INTO tblformacioncomplementariaintereses(idmateria,idaspirante,idgeneral,fecharegistro,activo,idUsuReg) VALUES "
+                    +" ( " + f.Materia + " , "+ b + " , " +f.Pregunta5 + ", NOW() , 1 ,"+idUsuario+")";
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1208,15 +1218,16 @@ namespace Aspirantes.Clases
         public void guardarFormacionPregunta2(List<int> lista, int idRegistro ,int aspirante)
         {
             String valores = "";
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             foreach (var id in lista ) {
-                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1 ,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = " INSERT INTO tblinteres (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES "+ valores;
+                String query = " INSERT INTO tblinteres (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1231,16 +1242,17 @@ namespace Aspirantes.Clases
         public void guardarFormacionPregunta3(List<int> lista, int idRegistro, int aspirante)
         {
             String valores = "";
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             foreach (var id in lista)
             {
-                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1, "+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = " INSERT INTO tblmotivo (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                String query = " INSERT INTO tblmotivo (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1255,16 +1267,17 @@ namespace Aspirantes.Clases
         public void guardarFormacionPregunta4(List<int> lista, int idRegistro, int aspirante)
         {
             String valores = "";
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             foreach (var id in lista)
             {
-                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = " INSERT INTO tblaportacion (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                String query = " INSERT INTO tblaportacion (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1278,14 +1291,14 @@ namespace Aspirantes.Clases
 
         public void guardarTribunal(Tribunal t)
         {
-            int b;
-            b = Convert.ToInt32(Session["idaspirante"]);;
+            int b = Convert.ToInt32(Session["idaspirante"]);;
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = "INSERT INTO tblinformacionrelacionadatribunal(idaspirante,tiene_familiar,nombre,fecharegistro,activo) VALUES "
-                    + " ( "  + b + " , " + t.TrabajaTribunal+" , '" + t.Nombre + "' , NOW() , 1 )";
+                String query = "INSERT INTO tblinformacionrelacionadatribunal(idaspirante,tiene_familiar,nombre,fecharegistro,activo,idUsuReg) VALUES "
+                    + " ( "  + b + " , " + t.TrabajaTribunal+" , '" + t.Nombre + "' , NOW() , 1, "+idUsuario+" )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1314,16 +1327,17 @@ namespace Aspirantes.Clases
         public void guardarTribunalParentezco(List<int> lista, int idRegistro, int aspirante)
         {
             String valores = "";
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             foreach (var id in lista)
             {
-                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1, "+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = " INSERT INTO tblparentesco (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                String query = " INSERT INTO tblparentesco (idaspirante,idinftri,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1343,16 +1357,17 @@ namespace Aspirantes.Clases
         public void guardarTribunalCargo(List<int> lista, int idRegistro, int aspirante)
         {
             String valores = "";
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             foreach (var id in lista)
             {
-                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1) ,";
+                valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = " INSERT INTO tblcargo (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
+                String query = " INSERT INTO tblcargo (idaspirante,idinftri,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1373,12 +1388,13 @@ namespace Aspirantes.Clases
         {
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);;
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = "INSERT INTO tblexperienciaprofesional (idaspirante,act_tra_der,tiempo_act,meritorias,fecharegistro,activo)  VALUES "
-                    + " ( " + b + ", " + e.Pregunta1 + " , " + e.Pregunta2+ " , " + e.Pregunta3 + " ,  NOW() , 1 )";
+                String query = "INSERT INTO tblexperienciaprofesional (idaspirante,act_tra_der,tiempo_act,meritorias,fecharegistro,activo,idUsuReg)  VALUES "
+                    + " ( " + b + ", " + e.Pregunta1 + " , " + e.Pregunta2+ " , " + e.Pregunta3 + " ,  NOW() , 1,"+idUsuario+" )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1403,13 +1419,14 @@ namespace Aspirantes.Clases
         public void guardarConocimientos(Conocimientos c)
         {
             int b;
-            b = Convert.ToInt32(Session["idaspirante"]);;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = "INSERT INTO tblconocimientosinteres (idaspirante,pregunta1,pregunta_uno,pregunta2,pregunta_dos,pregunta3,pregunta_tres , fecharegistro, activo)  VALUES "
-                    + " ( " + b + ", '" + c.Text1+ "', "+c.Pregunta1+" , '" + c.Text2 + "', " + c.Pregunta2+ ", '" + c.Text3+ "' ," + c.Pregunta3+",  NOW() , 1 )";
+                String query = "INSERT INTO tblconocimientosinteres (idaspirante,pregunta1,pregunta_uno,pregunta2,pregunta_dos,pregunta3,pregunta_tres , fecharegistro, activo,idUsuReg)  VALUES "
+                    + " ( " + b + ", '" + c.Text1+ "', "+c.Pregunta1+" , '" + c.Text2 + "', " + c.Pregunta2+ ", '" + c.Text3+ "' ," + c.Pregunta3+",  NOW() , 1 ,"+idUsuario+")";
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
@@ -1434,13 +1451,14 @@ namespace Aspirantes.Clases
         public void guardarAspectosCualitativos(AspCualitativo a)
         {
             int b;
-            b = Convert.ToInt32(Session["idaspirante"]);;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                String query = "INSERT INTO tblaspectoscualitativosobservacion (idaspirante,aspper,formexp,intprof,actentre,desempenio,fecharegistro,activo)  VALUES "
-                    + " ( " +  b + ", " + a.Aspecto + " , " + a.FormaExp + " , " + a.Interes +" , "+ a.Actitud+" , "+ a.ElemAfecta + ", NOW() , 1 )";
+                String query = "INSERT INTO tblaspectoscualitativosobservacion (idaspirante,aspper,formexp,intprof,actentre,desempenio,fecharegistro,activo,idUsuReg)  VALUES "
+                    + " ( " +  b + ", " + a.Aspecto + " , " + a.FormaExp + " , " + a.Interes +" , "+ a.Actitud+" , "+ a.ElemAfecta + ", NOW() , 1,"+idUsuario+" )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
