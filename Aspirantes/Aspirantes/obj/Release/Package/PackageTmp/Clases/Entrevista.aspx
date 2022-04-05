@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"  />
     <link rel="stylesheet" href="../css/Sesion.css" />
-    <link rel="stylesheet" href="../PNotify/animate.css" />
-    <link rel="stylesheet" href="../PNotify/pnotify.custom.min.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <link rel="stylesheet" href="../css/pnotify.custom.min.css" />
 
     <%--JS--%>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
 <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/start/jquery-ui.css"
     rel="stylesheet" type="text/css" />
-     <script src="../PNotify/pnotify.custom.min.js"></script>
+     <script src="../css/pnotify.custom.min.js"></script>
 
                         <%--<script type="text/javascript">
                             var selected_tab = 1;
@@ -202,6 +202,13 @@
                                     <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
+
+               
+
+                <asp:LinkButton runat="server" ID="LinkButtonFormacion" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonFormacion_Click" Visible="true">Guardar</asp:LinkButton>
+
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs2" class="container tab-pane fade">
                  <h2>Información relacionada con el Tribunal</h2> <br />
@@ -234,7 +241,10 @@
                     <asp:CheckBoxList runat="server" ID="listBoxCargo" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox4" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
                 </asp:Panel>
-
+                
+                <asp:LinkButton runat="server" ID="LinkButtonTribunal" AutoPostBack="true"  CssClass="btn  btn-primary"
+                                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                                        OnClick="LinkButtonTribunal_Click" Visible="true">Guardar</asp:LinkButton>
 
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs3" class="container tab-pane fade">
@@ -260,6 +270,10 @@
                                     <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButtonExperiencia" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonExperiencia_Click" Visible="true">Guardar</asp:LinkButton>
         
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs4" class="container tab-pane fade">
@@ -291,6 +305,10 @@
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButtonConocimientos" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonConocimientos_Click" Visible="true">Guardar</asp:LinkButton>
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs5" class="container tab-pane fade">
                  <h2>Aspectos cualitativos de la información</h2>
@@ -329,14 +347,18 @@
                         <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
+
+                <asp:LinkButton runat="server" ID="LinkButtonAspectos" AutoPostBack="true"  CssClass="btn  btn-primary"
+                        style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
+                        OnClick="LinkButtonAspectos_Click" Visible="true">Guardar</asp:LinkButton>
             </asp:Panel>
                 </div>
 
         </asp:Panel>
         <asp:HiddenField ID="selected_tab" runat="server" />
-         <asp:LinkButton runat="server" ID="LinkButtonG" AutoPostBack="true"  CssClass="btn  btn-primary"
+<%--         <asp:LinkButton runat="server" ID="LinkButtonG" AutoPostBack="true"  CssClass="btn  btn-primary"
                         style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
-                        OnClick="LinkButtonG_Click" Visible="true">Guardar</asp:LinkButton>
+                        OnClick="LinkButtonG_Click" Visible="false">Guardar</asp:LinkButton>--%>
  
                         </asp:Panel>
                     </asp:Panel>

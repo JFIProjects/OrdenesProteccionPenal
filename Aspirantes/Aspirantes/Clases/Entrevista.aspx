@@ -167,13 +167,15 @@
 
                         <asp:Label ID="Label19" runat="server" Text="Rama o materia de interés"></asp:Label>
                         <asp:DropDownList ID="DropdownBoxMateria" runat="server" AppendDataBoundItems="true" class="form-control">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
+                <asp:RequiredFieldValidator runat="server" ID="DropdownBoxMateria_validator" ErrorMessage="* El campo no puede estar vació" ControlToValidate="DropdownBoxMateria"
+                    ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" Display="Dynamic" ValidationGroup="forcomint"/>
 
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label1" runat="server" Text="¿Qué formación complementaria ha tenido relacionada con la materia (mencionar la materia de interés)?"></asp:Label>
                     <%--<asp:ListBox ID="listBox2" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:ListBox>--%>
                      <asp:CheckBoxList runat="server" ID="listBox2" CssClass="checkboxlist form-control" />
                 </asp:Panel>
@@ -181,7 +183,7 @@
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label2" runat="server" Text="¿Qué lo motiva a querer formar parte del grupo de meritorios para el Poder Judicial del Estado de México?"></asp:Label>
                     <%--<asp:ListBox ID="listBox3" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:ListBox>--%>
                      <asp:CheckBoxList runat="server" ID="listBox3" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox1" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
@@ -190,7 +192,7 @@
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label3" runat="server" Text="¿Cuál considera que sería su aportación al Poder Judicial al incorporarse al grupo de Meritorios?"></asp:Label>
                     <%--<asp:ListBox ID="listBox4" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:ListBox>--%>
                      <asp:CheckBoxList runat="server" ID="listBox4" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox2" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
@@ -199,15 +201,17 @@
                  <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label4" runat="server" Text="¿Qué desarrollo profesional considera que puede alcanzar en el Poder Judicial del Estado México?"></asp:Label>
                                 <asp:DropDownList ID="DropDownPregunta5" runat="server" AppendDataBoundItems="true"  class="form-control" AutoPostBack="True">
-                                    <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                                    <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
+                     <asp:RequiredFieldValidator runat="server" ID="DropDownPregunta5_validator" ErrorMessage="* El campo no puede estar vació" ControlToValidate="DropDownPregunta5"
+                    ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" Display="Dynamic" ValidationGroup="forcomint"/>
                 </asp:Panel>
 
                
 
                 <asp:LinkButton runat="server" ID="LinkButtonFormacion" AutoPostBack="true"  CssClass="btn  btn-primary"
                         style="font-size: 20px; color: #767474; border-color: gray; background-color: #DAD7D7;" 
-                        OnClick="LinkButtonFormacion_Click" Visible="true">Guardar</asp:LinkButton>
+                        OnClick="LinkButtonFormacion_Click" Visible="true" ValidationGroup="forcomint">Guardar</asp:LinkButton>
 
             </asp:Panel>
             <asp:Panel runat="server" ID="tabs2" class="container tab-pane fade">
@@ -216,14 +220,14 @@
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label5" runat="server" Text="¿Tiene algún familiar o conocido que trabaje en el H. Tribunal Superior de Justicia?"></asp:Label>
                                 <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="true"  class="form-control" >
-                                    <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                                    <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label6" runat="server" Text="Parentezco"></asp:Label>
                     <%--<asp:ListBox ID="listBoxParentezco" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:ListBox>--%>
                     <asp:CheckBoxList runat="server" ID="listBoxParentezco" CssClass="checkboxlist form-control" />
                 </asp:Panel>
@@ -236,7 +240,7 @@
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label7" runat="server" Text="Cargo"></asp:Label>
                     <%--<asp:ListBox ID="listBoxCargo" runat="server" AppendDataBoundItems="true" class="form-control" SelectionMode="Multiple">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:ListBox>--%>
                     <asp:CheckBoxList runat="server" ID="listBoxCargo" CssClass="checkboxlist form-control" />
                     <asp:TextBox ID="TextBox4" Visible="false" class="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
@@ -253,21 +257,21 @@
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label8" runat="server" Text="¿Ha realizado alguna actividad o trabajo en el campo del Derecho?"></asp:Label>
                                 <asp:DropDownList ID="DropDownList2" runat="server" AppendDataBoundItems="true"  class="form-control" >
-                                    <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                                    <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
 
                <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label9" runat="server" Text="¿Cuánto tiempo le dedico a esta actividad?"></asp:Label>
                                 <asp:DropDownList ID="DropDownList3" runat="server" AppendDataBoundItems="true"  class="form-control" >
-                                    <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                                    <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label10" runat="server" Text="¿Cómo considera que esa experiencia le puede ser de utilidad en sus prácticas Meritorias?"></asp:Label>
                                 <asp:DropDownList ID="DropDownList4" runat="server" AppendDataBoundItems="true"  class="form-control" >
-                                    <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                                    <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                                 </asp:DropDownList>
                 </asp:Panel>
 
@@ -284,7 +288,7 @@
                     <asp:TextBox ID="TextBoxPregunta1" CssClass="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
 
                     <asp:DropDownList ID="DropDownList5" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
@@ -293,7 +297,7 @@
                     <asp:TextBox ID="TextBoxPregunta2" CssClass="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
 
                     <asp:DropDownList ID="DropDownList6" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
@@ -302,7 +306,7 @@
                     <asp:TextBox ID="TextBoxPregunta3" CssClass="form-control" runat="server" placeholder="Especifique"></asp:TextBox>
 
                 <asp:DropDownList ID="DropDownList7" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
@@ -316,35 +320,35 @@
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label14" runat="server" Text="Aspecto personal"></asp:Label>
                     <asp:DropDownList ID="DropDownList8" runat="server" AppendDataBoundItems="true" class="form-control">
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label15" runat="server" Text="Forma de expresión"></asp:Label>
                     <asp:DropDownList ID="DropDownList9" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label16" runat="server" Text="Interés profesional"></asp:Label>
                     <asp:DropDownList ID="DropDownList10" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label17" runat="server" Text="Actitud en la entrevista"></asp:Label>
                     <asp:DropDownList ID="DropDownList11" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-md-12">
                     <asp:Label ID="Label18" runat="server" Text="Elementos que considera pudieron afectar el desempeño del candidato en la entrevista"></asp:Label>
                     <asp:DropDownList ID="DropDownList12" runat="server" AppendDataBoundItems="true" class="form-control" >
-                        <asp:ListItem Value="-1" Text="--Seleccione--" Selected="True" />
+                        <asp:ListItem Value="" Text="--Seleccione--" Selected="True" />
                     </asp:DropDownList>
                 </asp:Panel>
 

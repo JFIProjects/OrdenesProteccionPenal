@@ -18,6 +18,7 @@ namespace Aspirantes.Clases
             if (!IsPostBack)
             {
                 obtenerCatalogo();
+                bloquearCampos();
             }
             else
             {
@@ -77,8 +78,8 @@ namespace Aspirantes.Clases
                         uni.Text = r.GetString("universidad");
                         semestre.Text = r.GetString("periodos");
                         porc.Text = r.GetString("promedio");
-                        string valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
-                        if (valorMateria == "") { valorMateria = "-1"; }
+                        valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
+                        
                             DropdownBoxMateria.SelectedValue = valorMateria;
                         
                         validarExisteInformacion(valorMateria);
@@ -94,9 +95,7 @@ namespace Aspirantes.Clases
                 con.Dispose();
                 con.Close();
 
-                if (!valorMateria.Equals("")) {
-                    PreparaCargaForms3();
-                }
+                
             }
             catch (MySqlException ex)
             {
@@ -107,6 +106,7 @@ namespace Aspirantes.Clases
             panelExpediente.Visible = true;
             tag.Text = nombre.Text;
 
+            
             obtenerpregunta2();
             obtenerpregunta3();
             obtenerpregunta4();
@@ -115,6 +115,11 @@ namespace Aspirantes.Clases
             obtenerpregunta7();
             obtenerpregunta8();
             obtenerpregunta9();
+
+            if (!valorMateria.Equals(""))
+            {
+                PreparaCargaForms3();
+            }
 
         }
 
@@ -414,6 +419,62 @@ namespace Aspirantes.Clases
             }
 
         }
+
+        public void PreparaCargaForms3()
+        {
+            int b = Convert.ToInt32(Session["idaspirante"]); ;
+
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "SELECT act_tra_der ep1, tiempo_act ep2, meritorias ep3 , "
+                                + " pregunta1 , pregunta_uno val1, pregunta2 , pregunta_dos val2, pregunta3 , pregunta_tres val3 , "
+                                + " aspper aspecto1, formexp aspecto2, intprof aspecto3, actentre aspecto4, desempenio aspecto5 "
+                                + " FROM tblexperienciaprofesional a "
+                                + " left join tblconocimientosinteres b on a.idAspirante = b.idAspirante"
+                                + " left join  tblaspectoscualitativosobservacion c  on c.idAspirante = b.idAspirante"
+                                + " where a.idAspirante = " + b + " and a.activo = 1  limit 1; ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    DropDownList2.SelectedValue = r.GetString("ep1");
+                    DropDownList3.SelectedValue = r.GetString("ep2");
+                    DropDownList4.SelectedValue = r.GetString("ep3");
+
+                    TextBoxPregunta1.Text = r.GetString("pregunta1");
+                    DropDownList5.SelectedValue = r.GetString("val1");
+                    TextBoxPregunta2.Text = r.GetString("pregunta2");
+                    DropDownList6.SelectedValue = r.GetString("val2");
+                    TextBoxPregunta3.Text = r.GetString("pregunta2");
+                    DropDownList7.SelectedValue = r.GetString("val3");
+
+                    DropDownList8.SelectedValue = r.GetString("aspecto1");
+                    DropDownList9.SelectedValue = r.GetString("aspecto2");
+                    DropDownList10.SelectedValue = r.GetString("aspecto3");
+                    DropDownList11.SelectedValue = r.GetString("aspecto4");
+                    DropDownList12.SelectedValue = r.GetString("aspecto5");
+                }
+
+                con.Dispose();
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+
         public void validarExisteInformacion(String materia) {
             Boolean bandera = false;
             if (materia.Equals("")) {
@@ -1406,31 +1467,49 @@ namespace Aspirantes.Clases
 
         public void limpiarCampos()
         {
-            DropdownBoxMateria.SelectedValue = "-1";
+            DropdownBoxMateria.SelectedValue = "";
             listBox2.ClearSelection();
             listBox3.ClearSelection();
             listBox4.ClearSelection();
-            DropDownPregunta5.SelectedValue = "-1";
-            DropDownList1.SelectedValue = "-1";
+            DropDownPregunta5.SelectedValue = "";
+            DropDownList1.SelectedValue = "";
             listBoxParentezco.ClearSelection();
             texNombrep1.Text = "";
             TextBox4.Text = "";
-            DropDownList2.SelectedValue = "-1";
-            DropDownList3.SelectedValue = "-1";
-            DropDownList4.SelectedValue = "-1";
+            DropDownList2.SelectedValue = "";
+            DropDownList3.SelectedValue = "";
+            DropDownList4.SelectedValue = "";
             TextBoxPregunta1.Text = "";
-            DropDownList5.SelectedValue = "-1";
+            DropDownList5.SelectedValue = "";
             TextBoxPregunta2.Text = "";
-            DropDownList6.SelectedValue = "-1";
+            DropDownList6.SelectedValue = "";
             TextBoxPregunta3.Text = "";
-            DropDownList7.SelectedValue = "-1";
-            DropDownList8.SelectedValue = "-1";
-            DropDownList9.SelectedValue = "-1";
-            DropDownList10.SelectedValue = "-1";
-            DropDownList11.SelectedValue = "-1";
-            DropDownList12.SelectedValue = "-1";
+            DropDownList7.SelectedValue = "";
+            DropDownList8.SelectedValue = "";
+            DropDownList9.SelectedValue = "";
+            DropDownList10.SelectedValue = "";
+            DropDownList11.SelectedValue = "";
+            DropDownList12.SelectedValue = "";
             listBoxCargo.ClearSelection();
         }
 
+        public void bloquearCampos()
+        {
+            nombre.Enabled = false;
+            fecNac.Enabled = false;
+            edad.Enabled = false;
+            edoCivil.Enabled = false;
+            direccion.Enabled = false;
+            telFijo.Enabled = false;
+            telMovil.Enabled = false;
+            correo.Enabled = false;
+            licen.Enabled = false;
+            uni.Enabled = false;
+            semestre.Enabled = false;
+            porc.Enabled = false;
+        }
+
     }
+
+    
 }

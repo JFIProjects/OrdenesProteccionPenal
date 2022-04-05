@@ -75,7 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clases\Entrevista.aspx" />
+    <Content Include="Clases\Prueba.aspx" />
+    <Content Include="Css\animate.css" />
+    <Content Include="Css\pnotify.custom.min.css" />
+    <Content Include="Css\pnotify.custom.min.js" />
     <Content Include="Css\Sesion.css" />
+    <Content Include="js\Sesion.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -87,6 +92,13 @@
     </Compile>
     <Compile Include="Clases\Entrevista.aspx.designer.cs">
       <DependentUpon>Entrevista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Prueba.aspx.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clases\Prueba.aspx.designer.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\AspCualitativo.cs" />
     <Compile Include="Modelos\Conocimientos.cs" />
