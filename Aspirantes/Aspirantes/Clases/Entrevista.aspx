@@ -409,5 +409,8 @@
 
                 
     </form>
+
+    <asp:Panel runat="server" Style="width: 100%; height: 50px; background: linear-gradient(-135deg, #9d2424, #c80000);">
+    </asp:Panel>
 </body>
 </html>

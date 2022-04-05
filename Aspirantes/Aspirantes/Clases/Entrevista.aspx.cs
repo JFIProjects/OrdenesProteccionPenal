@@ -17,6 +17,10 @@ namespace Aspirantes.Clases
         {
             if (!IsPostBack)
             {
+                if (Session["userEnt"] is null)
+                {
+                    //Response.Redirect("Login.aspx");
+                }
                 obtenerCatalogo();
                 bloquearCampos();
             }
@@ -80,9 +84,9 @@ namespace Aspirantes.Clases
                         porc.Text = r.GetString("promedio");
                         valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
                         
-                            DropdownBoxMateria.SelectedValue = valorMateria;
+                        DropdownBoxMateria.SelectedValue = valorMateria;
                         
-                        validarExisteInformacion(valorMateria);
+                        validarExisteInformacion(valorMateria, 1);
                        
                     }
                     else if (estatus == 345)
@@ -293,7 +297,8 @@ namespace Aspirantes.Clases
             {
 
                 DropDownList1.SelectedValue = r.GetString("id");
-
+                String valor = r.GetString("id").Equals(null) ? "" : r.GetString("id");
+                validarExisteInformacion(valor, 2);
             }
 
             try
@@ -423,14 +428,14 @@ namespace Aspirantes.Clases
         public void PreparaCargaForms3()
         {
             int b = Convert.ToInt32(Session["idaspirante"]); ;
-
+            String valor = "";
             try
             {
                 MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
-                string query = "SELECT act_tra_der ep1, tiempo_act ep2, meritorias ep3 , "
-                                + " pregunta1 , pregunta_uno val1, pregunta2 , pregunta_dos val2, pregunta3 , pregunta_tres val3 , "
-                                + " aspper aspecto1, formexp aspecto2, intprof aspecto3, actentre aspecto4, desempenio aspecto5 "
+                string query = "SELECT IFNULL(act_tra_der,'') ep1, tiempo_act ep2, meritorias ep3 , "
+                                + " pregunta1 , IFNULL(pregunta_uno,'') val1, pregunta2 , pregunta_dos val2, pregunta3 , pregunta_tres val3 , "
+                                + " IFNULL(aspper,'') aspecto1, formexp aspecto2, intprof aspecto3, actentre aspecto4, desempenio aspecto5 "
                                 + " FROM tblexperienciaprofesional a "
                                 + " left join tblconocimientosinteres b on a.idAspirante = b.idAspirante"
                                 + " left join  tblaspectoscualitativosobservacion c  on c.idAspirante = b.idAspirante"
@@ -447,19 +452,24 @@ namespace Aspirantes.Clases
                     DropDownList2.SelectedValue = r.GetString("ep1");
                     DropDownList3.SelectedValue = r.GetString("ep2");
                     DropDownList4.SelectedValue = r.GetString("ep3");
+                    validarExisteInformacion(r.GetString("ep1"), 3);
 
                     TextBoxPregunta1.Text = r.GetString("pregunta1");
                     DropDownList5.SelectedValue = r.GetString("val1");
                     TextBoxPregunta2.Text = r.GetString("pregunta2");
                     DropDownList6.SelectedValue = r.GetString("val2");
-                    TextBoxPregunta3.Text = r.GetString("pregunta2");
+                    TextBoxPregunta3.Text = r.GetString("pregunta3");
                     DropDownList7.SelectedValue = r.GetString("val3");
+                    validarExisteInformacion(r.GetString("val1"), 4);
 
                     DropDownList8.SelectedValue = r.GetString("aspecto1");
-                    DropDownList9.SelectedValue = r.GetString("aspecto2");
-                    DropDownList10.SelectedValue = r.GetString("aspecto3");
-                    DropDownList11.SelectedValue = r.GetString("aspecto4");
-                    DropDownList12.SelectedValue = r.GetString("aspecto5");
+                    if (!r.GetString("aspecto1").Equals("")) {
+                        DropDownList9.SelectedValue = r.GetString("aspecto2");
+                        DropDownList10.SelectedValue = r.GetString("aspecto3");
+                        DropDownList11.SelectedValue = r.GetString("aspecto4");
+                        DropDownList12.SelectedValue = r.GetString("aspecto5");
+                    }
+                    validarExisteInformacion(r.GetString("aspecto1"), 5);
                 }
 
                 con.Dispose();
@@ -475,16 +485,31 @@ namespace Aspirantes.Clases
         }
 
 
-        public void validarExisteInformacion(String materia) {
+        public void validarExisteInformacion(String valor, int id) {
             Boolean bandera = false;
-            if (materia.Equals("")) {
+            if (valor.Equals("")) {
                 bandera = true;
             }
-            LinkButtonFormacion.Enabled = bandera;
-            LinkButtonTribunal.Enabled = bandera;
-            LinkButtonExperiencia.Enabled = bandera;
-            LinkButtonConocimientos.Enabled = bandera;
-            LinkButtonAspectos.Enabled = bandera;
+            if (id == 1)
+            {
+                LinkButtonFormacion.Enabled = bandera;
+            }
+            else if (id == 2)
+            {
+                LinkButtonTribunal.Enabled = bandera;
+            }
+            else if (id == 3)
+            {
+                LinkButtonExperiencia.Enabled = bandera;
+            }
+            else if (id == 4)
+            {
+                LinkButtonConocimientos.Enabled = bandera;
+            }
+            else if (id == 5)
+            {
+                LinkButtonAspectos.Enabled = bandera;
+            }
 
         }
 
@@ -562,7 +587,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idmateria as id, descmateria as descripcion FROM  tblcatmateria where activo = 1";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropdownBoxMateria.DataSource = cmd.ExecuteReader();
                 DropdownBoxMateria.DataTextField = "descripcion";
@@ -610,7 +634,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 1 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 listBox2.DataSource = cmd.ExecuteReader();
                 listBox2.DataTextField = "descripcion";
@@ -637,7 +660,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 2 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 listBox3.DataSource = cmd.ExecuteReader();
                 listBox3.DataTextField = "descripcion";
@@ -660,7 +682,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 3 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 listBox4.DataSource = cmd.ExecuteReader();
                 listBox4.DataTextField = "descripcion";
@@ -683,7 +704,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 4 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownPregunta5.DataSource = cmd.ExecuteReader();
                 DropDownPregunta5.DataTextField = "descripcion";
@@ -707,7 +727,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta =6 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 listBoxParentezco.DataSource = cmd.ExecuteReader();
                 listBoxParentezco.DataTextField = "descripcion";
@@ -731,7 +750,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta =7 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 listBoxCargo.DataSource = cmd.ExecuteReader();
                 listBoxCargo.DataTextField = "descripcion";
@@ -756,7 +774,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 8 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList1.DataSource = cmd.ExecuteReader();
                 DropDownList1.DataTextField = "descripcion";
@@ -780,7 +797,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 8 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList2.DataSource = cmd.ExecuteReader();
                 DropDownList2.DataTextField = "descripcion";
@@ -803,7 +819,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 9 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList3.DataSource = cmd.ExecuteReader();
                 DropDownList3.DataTextField = "descripcion";
@@ -827,7 +842,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 10 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList4.DataSource = cmd.ExecuteReader();
                 DropDownList4.DataTextField = "descripcion";
@@ -851,7 +865,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 11 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList5.DataSource = cmd.ExecuteReader();
                 DropDownList5.DataTextField = "descripcion";
@@ -875,7 +888,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 12 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList6.DataSource = cmd.ExecuteReader();
                 DropDownList6.DataTextField = "descripcion";
@@ -898,7 +910,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 13 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList7.DataSource = cmd.ExecuteReader();
                 DropDownList7.DataTextField = "descripcion";
@@ -922,7 +933,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 14 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList8.DataSource = cmd.ExecuteReader();
                 DropDownList8.DataTextField = "descripcion";
@@ -946,7 +956,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 15 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList9.DataSource = cmd.ExecuteReader();
                 DropDownList9.DataTextField = "descripcion";
@@ -971,7 +980,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 16 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList10.DataSource = cmd.ExecuteReader();
                 DropDownList10.DataTextField = "descripcion";
@@ -994,7 +1002,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 17 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList11.DataSource = cmd.ExecuteReader();
                 DropDownList11.DataTextField = "descripcion";
@@ -1017,7 +1024,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 18 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 DropDownList12.DataSource = cmd.ExecuteReader();
                 DropDownList12.DataTextField = "descripcion";
@@ -1176,7 +1182,6 @@ namespace Aspirantes.Clases
                 String query = "INSERT INTO tblformacioncomplementariaintereses(idmateria,idaspirante,idgeneral,fecharegistro,activo) VALUES "
                     +" ( " + f.Materia + " , "+ b + " , " +f.Pregunta5 + ", NOW() , 1 )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
 
@@ -1213,7 +1218,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = " INSERT INTO tblinteres (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES "+ valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1238,7 +1242,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = " INSERT INTO tblmotivo (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1263,7 +1266,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = " INSERT INTO tblaportacion (idaspirante,idforcom,idgeneral,fecharegistro,activo)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1285,7 +1287,6 @@ namespace Aspirantes.Clases
                 String query = "INSERT INTO tblinformacionrelacionadatribunal(idaspirante,tiene_familiar,nombre,fecharegistro,activo) VALUES "
                     + " ( "  + b + " , " + t.TrabajaTribunal+" , '" + t.Nombre + "' , NOW() , 1 )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
 
@@ -1324,7 +1325,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = " INSERT INTO tblparentesco (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1354,7 +1354,6 @@ namespace Aspirantes.Clases
                 con.Open();
                 String query = " INSERT INTO tblcargo (idaspirante,idinftri,idgeneral,fecharegistro,activo)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -1381,7 +1380,6 @@ namespace Aspirantes.Clases
                 String query = "INSERT INTO tblexperienciaprofesional (idaspirante,act_tra_der,tiempo_act,meritorias,fecharegistro,activo)  VALUES "
                     + " ( " + b + ", " + e.Pregunta1 + " , " + e.Pregunta2+ " , " + e.Pregunta3 + " ,  NOW() , 1 )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
 
@@ -1413,7 +1411,6 @@ namespace Aspirantes.Clases
                 String query = "INSERT INTO tblconocimientosinteres (idaspirante,pregunta1,pregunta_uno,pregunta2,pregunta_dos,pregunta3,pregunta_tres , fecharegistro, activo)  VALUES "
                     + " ( " + b + ", '" + c.Text1+ "', "+c.Pregunta1+" , '" + c.Text2 + "', " + c.Pregunta2+ ", '" + c.Text3+ "' ," + c.Pregunta3+",  NOW() , 1 )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
 
@@ -1445,7 +1442,6 @@ namespace Aspirantes.Clases
                 String query = "INSERT INTO tblaspectoscualitativosobservacion (idaspirante,aspper,formexp,intprof,actentre,desempenio,fecharegistro,activo)  VALUES "
                     + " ( " +  b + ", " + a.Aspecto + " , " + a.FormaExp + " , " + a.Interes +" , "+ a.Actitud+" , "+ a.ElemAfecta + ", NOW() , 1 )";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
 
@@ -1491,6 +1487,11 @@ namespace Aspirantes.Clases
             DropDownList11.SelectedValue = "";
             DropDownList12.SelectedValue = "";
             listBoxCargo.ClearSelection();
+            LinkButtonFormacion.Enabled = true;
+            LinkButtonExperiencia.Enabled = true;
+            LinkButtonAspectos.Enabled = true;
+            LinkButtonConocimientos.Enabled = true;
+            LinkButtonTribunal.Enabled = true;
         }
 
         public void bloquearCampos()
