@@ -34,6 +34,7 @@ namespace Aspirantes.Clases
             String b;
             b = busqueda.Text;
             b = (b.Split(':'))[0];
+            string valorMateria = "";
 
             Session["idaspirante"] = b;
 
@@ -76,9 +77,10 @@ namespace Aspirantes.Clases
                         uni.Text = r.GetString("universidad");
                         semestre.Text = r.GetString("periodos");
                         porc.Text = r.GetString("promedio");
-                        string valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
+                        valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
                         DropdownBoxMateria.SelectedValue = valorMateria;
                         validarExisteInformacion(valorMateria);
+                       
                     }
                     else if (estatus == 345)
                     {
@@ -90,6 +92,9 @@ namespace Aspirantes.Clases
                 con.Dispose();
                 con.Close();
 
+                if (!valorMateria.Equals("")) {
+                    PreparaCargaForms3();
+                }
             }
             catch (MySqlException ex)
             {
@@ -99,6 +104,60 @@ namespace Aspirantes.Clases
             panelBusqueda.Visible = false;
             panelExpediente.Visible = true;
             tag.Text = nombre.Text;
+
+        }
+
+        public void PreparaCargaForms3()
+        {
+            int b = Convert.ToInt32(Session["idaspirante"]); ;
+
+            try
+            {
+                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "SELECT act_tra_der ep1, tiempo_act ep2, meritorias ep3 , "
+                                + " pregunta1 , pregunta_uno val1, pregunta2 , pregunta_dos val2, pregunta3 , pregunta_tres val3 , "
+                                + " aspper aspecto1, formexp aspecto2, intprof aspecto3, actentre aspecto4, desempenio aspecto5 "
+                                +" FROM tblexperienciaprofesional a "    
+                                +" left join tblconocimientosinteres b on a.idAspirante = b.idAspirante"
+                                +" left join  tblaspectoscualitativosobservacion c  on c.idAspirante = b.idAspirante"
+                                +" where a.idAspirante = "+b+" and a.activo = 1  limit 1; ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    DropDownList2.SelectedValue = r.GetString("ep1");
+                    DropDownList3.SelectedValue = r.GetString("ep2");
+                    DropDownList4.SelectedValue = r.GetString("ep3");
+
+                    TextBoxPregunta1.Text = r.GetString("pregunta1");
+                    DropDownList5.SelectedValue = r.GetString("val1");
+                    TextBoxPregunta2.Text = r.GetString("pregunta2");
+                    DropDownList6.SelectedValue = r.GetString("val2");
+                    TextBoxPregunta3.Text = r.GetString("pregunta2");
+                    DropDownList7.SelectedValue = r.GetString("val3");
+
+                    DropDownList8.SelectedValue  = r.GetString("aspecto1");
+                    DropDownList9.SelectedValue  = r.GetString("aspecto2");
+                    DropDownList10.SelectedValue = r.GetString("aspecto3");
+                    DropDownList11.SelectedValue = r.GetString("aspecto4");
+                    DropDownList12.SelectedValue = r.GetString("aspecto5");
+                }
+
+                con.Dispose();
+                con.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
 
         }
 
