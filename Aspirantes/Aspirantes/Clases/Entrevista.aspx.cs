@@ -45,7 +45,7 @@ namespace Aspirantes.Clases
                 "timestampdiff(year, a.fechaNacimiento, now()) edad,e.desEstadoCivil edoCivil, concat(a.calle, ',', a.numExt, ',', a.cp, ',', a.poblacion) direccion, " +
                 "a.telefono telFijo, a.celular telMovil, a.email correo, " +
                 "c.desCarrera licenciatura,es.institucion universidad,es.numPeriodosCursados periodos,promedio promedio " +
-                " , IFNULL(a.cveEstatus , -100 ) estatus  , f.idmateria materia, f.idgeneral  " +
+                " , IFNULL(a.cveEstatus , -100 ) estatus  , ifnull(f.idmateria,'') materia, f.idgeneral  " +
                 "from tblcm_aspirantes a " +
                 "inner " +
                 "join tblestadosciviles e on a.cveEstadoCivil = e.cveEstadoCivil " +
@@ -77,7 +77,9 @@ namespace Aspirantes.Clases
                         semestre.Text = r.GetString("periodos");
                         porc.Text = r.GetString("promedio");
                         string valorMateria = r.GetString("materia").Equals(null) ? "" : r.GetString("materia");
-                        DropdownBoxMateria.SelectedValue = valorMateria;
+                        if (valorMateria == "") { valorMateria = "-1"; }
+                            DropdownBoxMateria.SelectedValue = valorMateria;
+                        
                         validarExisteInformacion(valorMateria);
                     }
                     else if (estatus == 345)
@@ -100,8 +102,313 @@ namespace Aspirantes.Clases
             panelExpediente.Visible = true;
             tag.Text = nombre.Text;
 
+            obtenerpregunta2();
+            obtenerpregunta3();
+            obtenerpregunta4();
+            obtenerpregunta5();
+            obtenerpregunta6();
+            obtenerpregunta7();
+            obtenerpregunta8();
+            obtenerpregunta9();
+
         }
 
+        public void obtenerpregunta2()
+        {
+
+            int  b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblinteres where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+            
+            while (r.Read())
+            {
+
+                foreach (ListItem l in listBox2.Items)
+                {
+                    if (l.Value == r.GetString("id"))
+                    {
+                        l.Selected = true;
+                    }
+                }
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta3()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblmotivo where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                foreach (ListItem l in listBox3.Items)
+                {
+                    if (l.Value == r.GetString("id"))
+                    {
+                        l.Selected = true;
+                    }
+                }
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta4()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblaportacion where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                foreach (ListItem l in listBox4.Items)
+                {
+                    if (l.Value == r.GetString("id"))
+                    {
+                        l.Selected = true;
+                    }
+                }
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta5()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblformacioncomplementariaintereses where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                DropDownPregunta5.SelectedValue = r.GetString("id"); 
+                    
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta6()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select tiene_familiar id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                DropDownList1.SelectedValue = r.GetString("id");
+
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta7()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblparentesco where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                foreach (ListItem l in listBoxParentezco.Items)
+                {
+                    if (l.Value == r.GetString("id"))
+                    {
+                        l.Selected = true;
+                    }
+                }
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta8()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select nombre id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                texNombrep1.Text = r.GetString("id");
+
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
+
+        public void obtenerpregunta9()
+        {
+
+            int b;
+            b = Convert.ToInt32(Session["idaspirante"]);
+            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+            con.Open();
+            string query = "select idgeneral id from tblcargo where idaspirante = " + b + " ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+
+
+            MySqlDataReader r = cmd.ExecuteReader();
+
+
+            while (r.Read())
+            {
+
+                foreach (ListItem l in listBoxCargo.Items)
+                {
+                    if (l.Value == r.GetString("id"))
+                    {
+                        l.Selected = true;
+                    }
+                }
+            }
+
+            try
+            {
+
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+
+            }
+
+        }
         public void validarExisteInformacion(String materia) {
             Boolean bandera = false;
             if (materia.Equals("")) {
@@ -1117,6 +1424,7 @@ namespace Aspirantes.Clases
             DropDownList10.SelectedValue = "-1";
             DropDownList11.SelectedValue = "-1";
             DropDownList12.SelectedValue = "-1";
+            listBoxCargo.ClearSelection();
         }
 
     }
