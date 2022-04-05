@@ -506,7 +506,7 @@ namespace Aspirantes.Clases
                                   "FROM die_administrativo_aspirantes.tblcm_aspirantes " +
                                   "WHERE " +
                                   "(concat(nombre, ' ', paterno, ' ', materno) like @nomexp " +
-                                  ") ";
+                                  ") and activo = 'S' ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@nomexp", "%" + prefixText + "%");
                 
