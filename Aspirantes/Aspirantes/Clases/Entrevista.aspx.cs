@@ -52,10 +52,10 @@ namespace Aspirantes.Clases
             string valorMateria = "";
 
             Session["idaspirante"] = b;
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 string query = "select concat(a.nombre,' ',a.paterno,' ',a.materno) nombre, a.fechaNacimiento fechaNacimiento, " +
                 "timestampdiff(year, a.fechaNacimiento, now()) edad,e.desEstadoCivil edoCivil, concat(a.calle, ',', a.numExt, ',', a.cp, ',', a.poblacion) direccion, " +
@@ -105,16 +105,16 @@ namespace Aspirantes.Clases
                     }
 
                 }
-
-                con.Dispose();
-                con.Close();
-
-                
+   
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
             panelBusqueda.Visible = false;
             panelExpediente.Visible = true;
@@ -142,74 +142,74 @@ namespace Aspirantes.Clases
 
             int  b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblinteres where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-            
-            while (r.Read())
-            {
-
-                foreach (ListItem l in listBox2.Items)
-                {
-                    if (l.Value == r.GetString("id"))
-                    {
-                        l.Selected = true;
-                    }
-                }
-            }
-
+            MySqlConnection con = null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblinteres where idaspirante = " + b + " ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    foreach (ListItem l in listBox2.Items)
+                    {
+                        if (l.Value == r.GetString("id"))
+                        {
+                            l.Selected = true;
+                        }
+                    }
+                }
 
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
 
+                Debug.WriteLine("Error al obtener los datos: " + ex.Message);
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
 
         public void obtenerpregunta3()
         {
-
-            int b;
-            b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblmotivo where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                foreach (ListItem l in listBox3.Items)
-                {
-                    if (l.Value == r.GetString("id"))
-                    {
-                        l.Selected = true;
-                    }
-                }
-            }
+            MySqlConnection con = null;
+            int b = Convert.ToInt32(Session["idaspirante"]);
 
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblmotivo where idaspirante = " + b + " ";
 
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    foreach (ListItem l in listBox3.Items)
+                    {
+                        if (l.Value == r.GetString("id"))
+                        {
+                            l.Selected = true;
+                        }
+                    }
+                }
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -219,36 +219,36 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblaportacion where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                foreach (ListItem l in listBox4.Items)
-                {
-                    if (l.Value == r.GetString("id"))
-                    {
-                        l.Selected = true;
-                    }
-                }
-            }
-
+            MySqlConnection con = null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblaportacion where idaspirante = " + b + " ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    foreach (ListItem l in listBox4.Items)
+                    {
+                        if (l.Value == r.GetString("id"))
+                        {
+                            l.Selected = true;
+                        }
+                    }
+                }
 
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -258,31 +258,30 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblformacioncomplementariaintereses where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                DropDownPregunta5.SelectedValue = r.GetString("id"); 
-                    
-            }
-
+            MySqlConnection con = null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblformacioncomplementariaintereses where idaspirante = " + b + " ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    DropDownPregunta5.SelectedValue = r.GetString("id");  
+                }
 
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -292,32 +291,31 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select tiene_familiar id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                DropDownList1.SelectedValue = r.GetString("id");
-                String valor = r.GetString("id").Equals(null) ? "" : r.GetString("id");
-                validarExisteInformacion(valor, 2);
-            }
-
+            MySqlConnection con = null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select tiene_familiar id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
 
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    DropDownList1.SelectedValue = r.GetString("id");
+                    String valor = r.GetString("id").Equals(null) ? "" : r.GetString("id");
+                    validarExisteInformacion(valor, 2);
+                }
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -327,36 +325,36 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblparentesco where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                foreach (ListItem l in listBoxParentezco.Items)
-                {
-                    if (l.Value == r.GetString("id"))
-                    {
-                        l.Selected = true;
-                    }
-                }
-            }
+            MySqlConnection con = null;
 
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblparentesco where idaspirante = " + b + " ";
 
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    foreach (ListItem l in listBoxParentezco.Items)
+                    {
+                        if (l.Value == r.GetString("id"))
+                        {
+                            l.Selected = true;
+                        }
+                    }
+                }
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -366,31 +364,30 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select nombre id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                texNombrep1.Text = r.GetString("id");
-
-            }
-
+            MySqlConnection con =  null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select nombre id from tblinformacionrelacionadatribunal where idaspirante = " + b + " ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    texNombrep1.Text = r.GetString("id");
+                }
 
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -400,59 +397,59 @@ namespace Aspirantes.Clases
 
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
-            MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
-            con.Open();
-            string query = "select idgeneral id from tblcargo where idaspirante = " + b + " ";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-
-
-            MySqlDataReader r = cmd.ExecuteReader();
-
-
-            while (r.Read())
-            {
-
-                foreach (ListItem l in listBoxCargo.Items)
-                {
-                    if (l.Value == r.GetString("id"))
-                    {
-                        l.Selected = true;
-                    }
-                }
-            }
-
+            MySqlConnection con = null;
             try
             {
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con.Open();
+                string query = "select idgeneral id from tblcargo where idaspirante = " + b + " ";
+
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader r = cmd.ExecuteReader();
+
+                while (r.Read())
+                {
+                    foreach (ListItem l in listBoxCargo.Items)
+                    {
+                        if (l.Value == r.GetString("id"))
+                        {
+                            l.Selected = true;
+                        }
+                    }
+                }
+                con.Dispose();
+                con.Close();
 
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
             }
-
+            finally
+            {
+                con.Dispose();
+                con.Close();
+            }
         }
 
         public void PreparaCargaForms3()
         {
             int b = Convert.ToInt32(Session["idaspirante"]); ;
             String valor = "";
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 string query = "SELECT IFNULL(act_tra_der,'') ep1, tiempo_act ep2, meritorias ep3 , "
                                 + " pregunta1 , IFNULL(pregunta_uno,'') val1, pregunta2 , pregunta_dos val2, pregunta3 , pregunta_tres val3 , "
                                 + " IFNULL(aspper,'') aspecto1, formexp aspecto2, intprof aspecto3, actentre aspecto4, desempenio aspecto5 "
                                 + " FROM tblexperienciaprofesional a "
                                 + " left join tblconocimientosinteres b on a.idAspirante = b.idAspirante"
-                                + " left join  tblaspectoscualitativosobservacion c  on c.idAspirante = b.idAspirante"
+                                + " left join  tblaspectoscualitativosobservacion c  on c.idAspirante = a.idAspirante"
                                 + " where a.idAspirante = " + b + " and a.activo = 1  limit 1; ";
 
                 MySqlCommand cmd = new MySqlCommand(query, con);
-
-
                 MySqlDataReader r = cmd.ExecuteReader();
 
                 while (r.Read())
@@ -463,12 +460,15 @@ namespace Aspirantes.Clases
                     DropDownList4.SelectedValue = r.GetString("ep3");
                     validarExisteInformacion(r.GetString("ep1"), 3);
 
-                    TextBoxPregunta1.Text = r.GetString("pregunta1");
                     DropDownList5.SelectedValue = r.GetString("val1");
-                    TextBoxPregunta2.Text = r.GetString("pregunta2");
-                    DropDownList6.SelectedValue = r.GetString("val2");
-                    TextBoxPregunta3.Text = r.GetString("pregunta3");
-                    DropDownList7.SelectedValue = r.GetString("val3");
+                    if (!r.GetString("val1").Equals(""))
+                    {
+                        TextBoxPregunta1.Text = r.GetString("pregunta1");
+                        TextBoxPregunta2.Text = r.GetString("pregunta2");
+                        DropDownList6.SelectedValue = r.GetString("val2");
+                        TextBoxPregunta3.Text = r.GetString("pregunta3");
+                        DropDownList7.SelectedValue = r.GetString("val3");
+                    }
                     validarExisteInformacion(r.GetString("val1"), 4);
 
                     DropDownList8.SelectedValue = r.GetString("aspecto1");
@@ -481,14 +481,15 @@ namespace Aspirantes.Clases
                     validarExisteInformacion(r.GetString("aspecto1"), 5);
                 }
 
-                con.Dispose();
-                con.Close();
-
             }
             catch (MySqlException ex)
             {
                 Debug.WriteLine("Error al obtener los datos: " + ex.Message);
-
+            }
+            finally
+            {
+                con.Dispose();
+                con.Close();
             }
 
         }
@@ -543,8 +544,6 @@ namespace Aspirantes.Clases
                                   ") and activo = 'S' ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@nomexp", "%" + prefixText + "%");
-                
-
                 MySqlDataReader r = cmd.ExecuteReader();
 
                 while (r.Read())
@@ -589,10 +588,10 @@ namespace Aspirantes.Clases
 
         public void obtenerMateria()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idmateria as id, descmateria as descripcion FROM  tblcatmateria where activo = 1";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -601,12 +600,14 @@ namespace Aspirantes.Clases
                 DropdownBoxMateria.DataTextField = "descripcion";
                 DropdownBoxMateria.DataValueField = "id";
                 DropdownBoxMateria.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
-
+            }
+            finally {
+                con.Dispose();
+                con.Close();
             }
         }
 
@@ -636,10 +637,10 @@ namespace Aspirantes.Clases
 
         public void obtenerCombo()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 1 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -648,12 +649,18 @@ namespace Aspirantes.Clases
                 listBox2.DataTextField = "descripcion";
                 listBox2.DataValueField = "id";
                 listBox2.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
-            } 
+            }
+            finally {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
@@ -662,10 +669,10 @@ namespace Aspirantes.Clases
 
         public void obtenerList3()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 2 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -680,14 +687,22 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally 
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void obtenerList4()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 3 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -696,20 +711,27 @@ namespace Aspirantes.Clases
                 listBox4.DataTextField = "descripcion";
                 listBox4.DataValueField = "id";
                 listBox4.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void obtenerList5()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 4 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -718,21 +740,28 @@ namespace Aspirantes.Clases
                 DropDownPregunta5.DataTextField = "descripcion";
                 DropDownPregunta5.DataValueField = "id";
                 DropDownPregunta5.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
 
         public void obtenerList6()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta =6 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -741,21 +770,28 @@ namespace Aspirantes.Clases
                 listBoxParentezco.DataTextField = "descripcion";
                 listBoxParentezco.DataValueField = "id";
                 listBoxParentezco.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
 
         public void obtenerList7()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta =7 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -770,16 +806,24 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
 
         public void obtenerList8()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 8 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -794,15 +838,24 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
         public void obtenerList9()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 8 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -811,20 +864,28 @@ namespace Aspirantes.Clases
                 DropDownList2.DataTextField = "descripcion";
                 DropDownList2.DataValueField = "id";
                 DropDownList2.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
         public void obtenerList10()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 9 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -833,11 +894,18 @@ namespace Aspirantes.Clases
                 DropDownList3.DataTextField = "descripcion";
                 DropDownList3.DataValueField = "id";
                 DropDownList3.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -845,9 +913,10 @@ namespace Aspirantes.Clases
         public void obtenerList11()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 10 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -856,11 +925,18 @@ namespace Aspirantes.Clases
                 DropDownList4.DataTextField = "descripcion";
                 DropDownList4.DataValueField = "id";
                 DropDownList4.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -868,9 +944,10 @@ namespace Aspirantes.Clases
         public void obtenerList12()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 11 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -879,21 +956,28 @@ namespace Aspirantes.Clases
                 DropDownList5.DataTextField = "descripcion";
                 DropDownList5.DataValueField = "id";
                 DropDownList5.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
 
         public void obtenerList13()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 12 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -902,20 +986,28 @@ namespace Aspirantes.Clases
                 DropDownList6.DataTextField = "descripcion";
                 DropDownList6.DataValueField = "id";
                 DropDownList6.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
         public void obtenerList131()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 13 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -924,21 +1016,28 @@ namespace Aspirantes.Clases
                 DropDownList7.DataTextField = "descripcion";
                 DropDownList7.DataValueField = "id";
                 DropDownList7.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
 
         public void obtenerList14()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 14 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -953,15 +1052,24 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
         public void obtenerList15()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 15 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -976,6 +1084,14 @@ namespace Aspirantes.Clases
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
@@ -983,9 +1099,10 @@ namespace Aspirantes.Clases
         public void obtenerList16()
         {
 
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 16 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -994,20 +1111,27 @@ namespace Aspirantes.Clases
                 DropDownList10.DataTextField = "descripcion";
                 DropDownList10.DataValueField = "id";
                 DropDownList10.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void obtenerList17()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 17 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -1016,20 +1140,27 @@ namespace Aspirantes.Clases
                 DropDownList11.DataTextField = "descripcion";
                 DropDownList11.DataValueField = "id";
                 DropDownList11.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void obtenerList18()
         {
-
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "SELECT idgeneral as id, descgeneral as descripcion FROM  tblcatgeneral where numeropregunta = 18 and activo=1 ";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -1038,11 +1169,18 @@ namespace Aspirantes.Clases
                 DropDownList12.DataTextField = "descripcion";
                 DropDownList12.DataValueField = "id";
                 DropDownList12.DataBind();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -1185,9 +1323,10 @@ namespace Aspirantes.Clases
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);;
             int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "INSERT INTO tblformacioncomplementariaintereses(idmateria,idaspirante,idgeneral,fecharegistro,activo,idUsuReg) VALUES "
                     +" ( " + f.Materia + " , "+ b + " , " +f.Pregunta5 + ", NOW() , 1 ,"+idUsuario+")";
@@ -1213,6 +1352,14 @@ namespace Aspirantes.Clases
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void guardarFormacionPregunta2(List<int> lista, int idRegistro ,int aspirante)
@@ -1223,19 +1370,27 @@ namespace Aspirantes.Clases
                 valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1 ,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
+
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = " INSERT INTO tblinteres (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
-                cmd.ExecuteNonQuery();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -1248,20 +1403,29 @@ namespace Aspirantes.Clases
                 valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1, "+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = " INSERT INTO tblmotivo (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
+
         }
 
         public void guardarFormacionPregunta4(List<int> lista, int idRegistro, int aspirante)
@@ -1273,19 +1437,27 @@ namespace Aspirantes.Clases
                 valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = " INSERT INTO tblaportacion (idaspirante,idforcom,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
-                con.Close();
             }
             catch (MySqlException e)
             {
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -1293,9 +1465,10 @@ namespace Aspirantes.Clases
         {
             int b = Convert.ToInt32(Session["idaspirante"]);;
             int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "INSERT INTO tblinformacionrelacionadatribunal(idaspirante,tiene_familiar,nombre,fecharegistro,activo,idUsuReg) VALUES "
                     + " ( "  + b + " , " + t.TrabajaTribunal+" , '" + t.Nombre + "' , NOW() , 1, "+idUsuario+" )";
@@ -1321,6 +1494,14 @@ namespace Aspirantes.Clases
 
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
@@ -1333,9 +1514,10 @@ namespace Aspirantes.Clases
                 valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1, "+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = " INSERT INTO tblparentesco (idaspirante,idinftri,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -1352,6 +1534,14 @@ namespace Aspirantes.Clases
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void guardarTribunalCargo(List<int> lista, int idRegistro, int aspirante)
@@ -1363,15 +1553,15 @@ namespace Aspirantes.Clases
                 valores += "(" + aspirante + " , " + idRegistro + " , " + id + " , NOW(), 1,"+idUsuario+") ,";
             }
             valores = valores.TrimEnd(',');
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = " INSERT INTO tblcargo (idaspirante,idinftri,idgeneral,fecharegistro,activo,idUsuReg)  VALUES " + valores;
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
                 cmd.ExecuteNonQuery();
-                con.Close();
                 if (idRegistro > 0)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
@@ -1382,6 +1572,14 @@ namespace Aspirantes.Clases
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
         public void guardarExperiencia(Experiencia e)
@@ -1389,9 +1587,10 @@ namespace Aspirantes.Clases
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);;
             int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "INSERT INTO tblexperienciaprofesional (idaspirante,act_tra_der,tiempo_act,meritorias,fecharegistro,activo,idUsuReg)  VALUES "
                     + " ( " + b + ", " + e.Pregunta1 + " , " + e.Pregunta2+ " , " + e.Pregunta3 + " ,  NOW() , 1,"+idUsuario+" )";
@@ -1401,7 +1600,6 @@ namespace Aspirantes.Clases
 
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado: " + idRegistro);
-                con.Close();
                 
                 if (idRegistro > 0)
                 {
@@ -1413,6 +1611,14 @@ namespace Aspirantes.Clases
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + ex.Message);
             }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
+            }
         }
 
 
@@ -1421,9 +1627,10 @@ namespace Aspirantes.Clases
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
             int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "INSERT INTO tblconocimientosinteres (idaspirante,pregunta1,pregunta_uno,pregunta2,pregunta_dos,pregunta3,pregunta_tres , fecharegistro, activo,idUsuReg)  VALUES "
                     + " ( " + b + ", '" + c.Text1+ "', "+c.Pregunta1+" , '" + c.Text2 + "', " + c.Pregunta2+ ", '" + c.Text3+ "' ," + c.Pregunta3+",  NOW() , 1 ,"+idUsuario+")";
@@ -1433,7 +1640,6 @@ namespace Aspirantes.Clases
 
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado Conocimientos: " + idRegistro);
-                con.Close();
 
                 if (idRegistro > 0)
                 {
@@ -1444,6 +1650,14 @@ namespace Aspirantes.Clases
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
@@ -1453,9 +1667,10 @@ namespace Aspirantes.Clases
             int b;
             b = Convert.ToInt32(Session["idaspirante"]);
             int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            MySqlConnection con = null;
             try
             {
-                MySqlConnection con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
+                con = new MySqlConnection(System.Configuration.ConfigurationManager.AppSettings["local"]);
                 con.Open();
                 String query = "INSERT INTO tblaspectoscualitativosobservacion (idaspirante,aspper,formexp,intprof,actentre,desempenio,fecharegistro,activo,idUsuReg)  VALUES "
                     + " ( " +  b + ", " + a.Aspecto + " , " + a.FormaExp + " , " + a.Interes +" , "+ a.Actitud+" , "+ a.ElemAfecta + ", NOW() , 1,"+idUsuario+" )";
@@ -1465,8 +1680,6 @@ namespace Aspirantes.Clases
 
                 long idRegistro = cmd.LastInsertedId;
                 Console.WriteLine("id guardado: " + idRegistro);
-                con.Close();
-
                 if (idRegistro > 0)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Información", "mensaje('Información','La información se guardó correctamente.','success');", true);
@@ -1476,6 +1689,14 @@ namespace Aspirantes.Clases
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", "mensaje('ERROR','No se guardó la información.','error');", true);
                 Debug.WriteLine("Error al obtener los datos dos: " + e.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Dispose();
+                    con.Close();
+                }
             }
         }
 
