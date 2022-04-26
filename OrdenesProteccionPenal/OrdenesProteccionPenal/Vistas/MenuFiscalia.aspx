@@ -256,7 +256,7 @@
             
 
             <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
-            <asp:Panel runat="server" ID="contenido_victima" ClientIDMode="Static" CssClass="content container p-4" >
+            <asp:Panel runat="server" ID="contenido_victima" ClientIDMode="Static" CssClass="content container p-4" Visible="false" >
             <asp:Panel runat="server" CssClass="row">
                 <asp:Panel runat="server" ID="contenido" ClientIDMode="Static" CssClass="p-2" Visible="true">
             <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="tuto"><h3>Domicilio</h3></asp:Label>
@@ -953,7 +953,7 @@
             <%--//-------------------------------------------------------------------------------- VICTIMAS ------------------------------------------------------------------------------------//--%>
 
             <%--//-------------------------------------------------------------------------------- AGRESOR ------------------------------------------------------------------------------------//--%>
-            <asp:Panel runat="server" ID="contenido_agresor" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
+            <asp:Panel runat="server" ID="contenido_agresor" ClientIDMode="Static" CssClass="content container p-4" Visible ="false">
             <asp:Panel runat="server" CssClass="row">
                 <asp:Panel runat="server" ID="Contenidocampos" Visible="true" CssClass="form-group">
             <%--<asp:Panel runat="server" CssClass="form-group">

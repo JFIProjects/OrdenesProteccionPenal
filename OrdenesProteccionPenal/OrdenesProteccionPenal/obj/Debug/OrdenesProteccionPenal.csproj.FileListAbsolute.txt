@@ -7,12 +7,3 @@ C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProtec
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.pdb
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\MySql.Data.dll
 C:\Users\M Alberto González V\source\repos\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CopyComplete
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.dll.config
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.dll
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\OrdenesProteccionPenal.pdb
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\bin\AjaxControlToolkit.dll
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csprojAssemblyReference.cache
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CoreCompileInputs.cache
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.csproj.CopyComplete
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.dll
-C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\OrdenesProteccionPenal\OrdenesProteccionPenal\obj\Debug\OrdenesProteccionPenal.pdb
