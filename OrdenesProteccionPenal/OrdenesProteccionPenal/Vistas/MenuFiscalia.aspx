@@ -712,7 +712,7 @@
                     <asp:Panel runat="server" CssClass="div_emergente p-4 form-group">
 
                         <asp:Panel runat="server" CssClass="barra_opciones m-0 p-1 d-flex flex-row-reverse ">
-                            <asp:ImageButton runat="server" ImageUrl="~/Vista/Victima/img/close.png"  CausesValidation="false" Width="25px" Height="25px" />
+                            <asp:ImageButton runat="server" ImageUrl="/img/close.png" OnClick="CierraHijo" CausesValidation="false" Width="25px" Height="25px" />
                         </asp:Panel>
 
                         <asp:Panel runat="server" CssClass="form-group col-sm-8  m-0 p-2 form-group">

@@ -86,5 +86,9 @@ namespace OrdenesProteccionPenal.Vistas
         {
             mascara.Visible = true;
         }
+        public void CierraHijo(object sender, EventArgs e)
+        {
+            mascara.Visible = false;
+        }
     }
 }
