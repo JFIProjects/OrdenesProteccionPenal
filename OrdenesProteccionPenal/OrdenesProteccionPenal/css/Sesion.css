@@ -124,3 +124,6 @@
 
 .radioButton input[type=radio]{margin-right: 5px !important;}
 .cursor{cursor: pointer !important;}
+.nav-tabs .nav-link.active {
+    color: black !important;
+}
