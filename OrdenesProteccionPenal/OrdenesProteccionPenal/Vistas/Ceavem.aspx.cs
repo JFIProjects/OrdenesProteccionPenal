@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using OrdenesProteccionPenal.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace OrdenesProteccionPenal.Vistas
     {
         string query;
         MySqlCommand cmd;
-       
 
+        List<Elemento> listResultados;
+        List<Elemento> listMedidas;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,5 +52,52 @@ namespace OrdenesProteccionPenal.Vistas
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
+
+        protected void ButtonAgregar_Click(object sender, EventArgs e)
+        {
+            List<Elemento> formu = new List<Elemento>();
+
+            List<Elemento> lista = new List<Elemento>();
+            DateTime fecha = Convert.ToDateTime(inicio.Text);
+            string resultado_evaluacion = espec_otro.Text ;
+
+            if (listResultados == null)
+            {
+                listResultados = new List<Elemento>();
+            }
+
+            formu = (List<Elemento>)ViewState["evaluacion"];
+            if (formu == null)
+            {
+                formu = lista;
+            }
+            formu
+                .Add(new Elemento()
+            {
+                Fecha = fecha,
+                Resultado = resultado_evaluacion
+
+            });
+
+            ViewState["evaluacion"] = formu;
+
+            llenatablaEvaluacion.DataSource = formu;
+            llenatablaEvaluacion.DataBind();
+            limpiarCamposEvaluacion();
+
+        }
+
+
+        protected void limpiarCamposEvaluacion() {
+            inicio.Text = "";
+            espec_otro.Text = "";
+        }
+
+        protected void paginadorEvaluacion(object sender, GridViewPageEventArgs e)
+        {
+            llenatablaEvaluacion.PageIndex = e.NewPageIndex;
+        }
+
+
     }
 }

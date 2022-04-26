@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace OrdenesProteccionPenal.Vistas {
-    
-    
-    public partial class Ceavem {
-        
+namespace OrdenesProteccionPenal.Vistas
+{
+
+
+    public partial class Ceavem
+    {
+
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// Control ajax_login.
         /// </summary>
@@ -29,7 +31,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ajax_login;
-        
+
         /// <summary>
         /// Control Menu.
         /// </summary>
@@ -38,7 +40,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Menu;
-        
+
         /// <summary>
         /// Control contenido_orden.
         /// </summary>
@@ -47,7 +49,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel contenido_orden;
-        
+
         /// <summary>
         /// Control emision.
         /// </summary>
@@ -56,7 +58,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emision;
-        
+
         /// <summary>
         /// Control emision_icon.
         /// </summary>
@@ -65,7 +67,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label emision_icon;
-        
+
         /// <summary>
         /// Control emision_extender.
         /// </summary>
@@ -74,7 +76,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender emision_extender;
-        
+
         /// <summary>
         /// Control emision_validator.
         /// </summary>
@@ -83,7 +85,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditValidator emision_validator;
-        
+
         /// <summary>
         /// Control inicio.
         /// </summary>
@@ -92,7 +94,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inicio;
-        
+
         /// <summary>
         /// Control inicio_icon.
         /// </summary>
@@ -101,7 +103,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label inicio_icon;
-        
+
         /// <summary>
         /// Control inicio_extender.
         /// </summary>
@@ -110,7 +112,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender inicio_extender;
-        
+
         /// <summary>
         /// Control inicio_validator.
         /// </summary>
@@ -119,7 +121,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditValidator inicio_validator;
-        
+
         /// <summary>
         /// Control EspecOtro.
         /// </summary>
@@ -128,7 +130,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel EspecOtro;
-        
+
         /// <summary>
         /// Control espec_otro.
         /// </summary>
@@ -137,7 +139,7 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox espec_otro;
-        
+
         /// <summary>
         /// Control espec_otro_validator.
         /// </summary>
@@ -146,7 +148,34 @@ namespace OrdenesProteccionPenal.Vistas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator espec_otro_validator;
-        
+
+        /// <summary>
+        /// Control ButtonAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAgregar;
+
+        /// <summary>
+        /// Control panelUno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelUno;
+
+        /// <summary>
+        /// Control llenatablaEvaluacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView llenatablaEvaluacion;
+
         /// <summary>
         /// Control medidas_protec.
         /// </summary>

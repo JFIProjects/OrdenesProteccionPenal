@@ -155,3 +155,7 @@
     -webkit-transform: translate(-50%, -50%);
     border-radius: 5px;
 }
+.cursor{cursor: pointer !important;}
+.nav-tabs .nav-link.active {
+    color: black !important;
+}

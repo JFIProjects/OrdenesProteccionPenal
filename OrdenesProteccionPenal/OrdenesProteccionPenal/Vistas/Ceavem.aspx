@@ -47,10 +47,10 @@
 
 
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
-                <h3><asp:Label runat="server" CssClass="font-weight-bold">CEAVEM</asp:Label></h3>
+                <h3><asp:Label runat="server" CssClass="font-weight-bold">CEAVEM</asp:Label></h3> <br />
         <asp:Panel runat="server" CssClass="row">
             <asp:Panel runat="server" CssClass="row col-xl-12 p-0">
-            <asp:Panel runat="server" CssClass="form-group col-xl-6">
+            <asp:Panel runat="server" CssClass="form-group col-xl-12">
                     <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="emision">* Fecha de Ingreso</asp:Label>
                     <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
                         <asp:TextBox ID="emision" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
@@ -67,7 +67,7 @@
                     <axT:CalendarExtender runat="server" TargetControlID="emision" Format="dd/MM/yyyy" PopupButtonID="emision_icon"/>
                 </asp:Panel>
 
-                <asp:Panel runat="server" CssClass="form-group col-xl-6">
+                <asp:Panel runat="server" CssClass="form-group col-xl-4">
                     <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="inicio">* Fecha de Examen de Valoración</asp:Label>
                     <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
                         <asp:TextBox ID="inicio" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
@@ -84,12 +84,32 @@
                     <axT:CalendarExtender runat="server" TargetControlID="inicio" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="inicio_icon" />
                 </asp:Panel>
 
-                <asp:Panel runat="server" ID="EspecOtro"  CssClass="form-group col-xl-12 p-0">
-                <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="espec_otro">* Resultado de la Evaluación</asp:Label>
-                <asp:TextBox runat="server" ID="espec_otro" ClientIDMode="Static" placeholder="Especifique Medida de Protección" CssClass="form-control custom-select-sm" />
-                <asp:RequiredFieldValidator runat="server" ID="espec_otro_validator" ErrorMessage="* Especifique Medida de Protección no puede estar vacio" ControlToValidate="espec_otro"
-                    ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
-            </asp:Panel>
+                <asp:Panel runat="server" ID="EspecOtro" CssClass="form-group col-xl-7 p-0">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="espec_otro">* Resultado de la Evaluación</asp:Label>
+                    <asp:TextBox runat="server" ID="espec_otro" ClientIDMode="Static" placeholder="Especifique Medida de Protección" CssClass="form-control custom-select-sm" />
+                    <asp:RequiredFieldValidator runat="server" ID="espec_otro_validator" ErrorMessage="* Especifique Medida de Protección no puede estar vacio" ControlToValidate="espec_otro"
+                        ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
+                </asp:Panel>
+
+                <asp:Panel runat="server" class="form-group col-xl-1">
+                    <asp:Button ID="ButtonAgregar" runat="server" Text="Agregar" OnClick="ButtonAgregar_Click" class="btn btn-secondary" AutoPostBack="true" style="margin-top: 35%;"/>
+                </asp:Panel>
+
+
+                <asp:Panel runat="server" class="form-group row" Style="width: 100%;" ID="panelUno">
+                    <asp:Panel runat="server" Style="width: 50%; margin: 0 auto;">
+                        <asp:GridView runat="server" ID="llenatablaEvaluacion" CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="False" GridLines="None"
+                            EmptyDataText="No se ha agregado información" ShowHeaderWhenEmpty="true" OnPageIndexChanging="paginadorEvaluacion" AllowPaging="true">
+                            <Columns>
+                                <asp:BoundField DataField="fecha" HeaderText="Fecha de examen" />
+                                <asp:BoundField DataField="resultado" HeaderText="Resultado de la evaluación" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:Panel>
+                </asp:Panel>
+
+                <hr />
 
                 <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
                 <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec">Medidas de apoyo</asp:Label>
