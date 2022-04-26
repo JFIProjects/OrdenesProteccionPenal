@@ -177,12 +177,66 @@ namespace OrdenesProteccionPenal.Vistas
         protected global::System.Web.UI.WebControls.GridView llenatablaEvaluacion;
 
         /// <summary>
-        /// Control medidas_protec.
+        /// Control fecha_medida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList medidas_protec;
+        protected global::System.Web.UI.WebControls.TextBox fecha_medida;
+
+        /// <summary>
+        /// Control fecha_medida_icon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fecha_medida_icon;
+
+        /// <summary>
+        /// Control fecha_medida_extender.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender fecha_medida_extender;
+
+        /// <summary>
+        /// Control fecha_medida_validator.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditValidator fecha_medida_validator;
+
+        /// <summary>
+        /// Control medidas_protec2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList medidas_protec2;
+
+        /// <summary>
+        /// Control ButtonMedida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonMedida;
+
+        /// <summary>
+        /// Control llenatablaMedidas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView llenatablaMedidas;
     }
 }

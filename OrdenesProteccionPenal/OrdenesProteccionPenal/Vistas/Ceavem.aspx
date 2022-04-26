@@ -70,7 +70,7 @@
                 <asp:Panel runat="server" CssClass="form-group col-xl-4">
                     <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="inicio">* Fecha de Examen de Valoración</asp:Label>
                     <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
-                        <asp:TextBox ID="inicio" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
+                        <asp:TextBox ID="inicio" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" ValidationGroup="groupagregar" />
                         <asp:Label runat="server" CssClass="input-group-append">
                             <asp:Label runat="server" ID="inicio_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
                                 <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
@@ -86,13 +86,13 @@
 
                 <asp:Panel runat="server" ID="EspecOtro" CssClass="form-group col-xl-7 p-0">
                     <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="espec_otro">* Resultado de la Evaluación</asp:Label>
-                    <asp:TextBox runat="server" ID="espec_otro" ClientIDMode="Static" placeholder="Especifique Medida de Protección" CssClass="form-control custom-select-sm" />
+                    <asp:TextBox runat="server" ID="espec_otro" ClientIDMode="Static" placeholder="Especifique Medida de Protección" CssClass="form-control custom-select-sm" ValidationGroup="groupagregar" />
                     <asp:RequiredFieldValidator runat="server" ID="espec_otro_validator" ErrorMessage="* Especifique Medida de Protección no puede estar vacio" ControlToValidate="espec_otro"
                         ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
                 </asp:Panel>
 
                 <asp:Panel runat="server" class="form-group col-xl-1">
-                    <asp:Button ID="ButtonAgregar" runat="server" Text="Agregar" OnClick="ButtonAgregar_Click" class="btn btn-secondary" AutoPostBack="true" style="margin-top: 35%;"/>
+                    <asp:Button ID="ButtonAgregar" runat="server" Text="Agregar" OnClick="ButtonAgregar_Click" class="btn btn-secondary" AutoPostBack="true" style="margin-top: 35%;" ValidationGroup="groupagregar"/>
                 </asp:Panel>
 
 
@@ -111,10 +111,54 @@
 
                 <hr />
 
-                <asp:Panel runat="server" CssClass="form-group col-xl-12 p-0">
-                <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec">Medidas de apoyo</asp:Label>
-                <asp:CheckBoxList runat="server" ID="medidas_protec" CssClass="checkboxlist form-control"  AutoPostBack="true" />
-            </asp:Panel>
+                    <asp:Panel runat="server" CssClass="form-group col-xl-4">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="fecha_medida">* Fecha de Examen de Valoración</asp:Label>
+                    <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
+                        <asp:TextBox ID="fecha_medida" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" ValidationGroup="groupmedidas" />
+                        <asp:Label runat="server" CssClass="input-group-append">
+                            <asp:Label runat="server" ID="fecha_medida_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
+                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
+                            </asp:Label>
+                        </asp:Label>
+                    </asp:Panel>
+                    <axT:MaskedEditExtender ID="fecha_medida_extender" runat="server" TargetControlID="fecha_medida" MaskType="DateTime" Mask="99/99/9999 99:99:99"
+                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                    <axT:MaskedEditValidator ID="fecha_medida_validator" runat="server" ControlExtender="fecha_medida_extender" ControlToValidate="fecha_medida" IsValidEmpty="false"
+                        EmptyValueMessage="* Fecha fecha_medida no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
+                    <axT:CalendarExtender runat="server" TargetControlID="fecha_medida" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="fecha_medida_icon" />
+                </asp:Panel>
+
+
+                <asp:Panel runat="server" CssClass="form-group col-xl-7 p-0">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="medidas_protec2">Medidas de apoyo</asp:Label>
+                    <asp:Panel runat="server" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" TabIndex="0">
+
+                        <asp:DropDownList runat="server" ID="medidas_protec2" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true" ValidationGroup="groupmedidas">
+                            <asp:ListItem Value="0" Text="--Seleccione--" Selected="True" />
+                        </asp:DropDownList>
+                    </asp:Panel>
+
+
+                </asp:Panel>
+
+                <asp:Panel runat="server" class="form-group col-xl-1">
+                    <asp:Button ID="ButtonMedida" runat="server" Text="Agregar Medida" OnClick="ButtonMedida_Click1" class="btn btn-secondary" AutoPostBack="true" Style="margin-top: 35%;" ValidationGroup="groupmedidas" />
+                </asp:Panel>
+
+
+
+
+
+                    <asp:Panel runat="server" Style="width: 75%; margin: 0 auto;">
+                        <asp:GridView runat="server" ID="llenatablaMedidas" CssClass="table table-striped table-bordered"
+                            AutoGenerateColumns="False" GridLines="None"
+                            EmptyDataText="No se ha agregado información" ShowHeaderWhenEmpty="true" OnPageIndexChanging="paginadorMedidas" AllowPaging="true">
+                            <Columns>
+                                <asp:BoundField DataField="fecha" HeaderText="Fecha Medida" />
+                                <asp:BoundField DataField="resultado" HeaderText="Medida" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:Panel>
 
                 </asp:Panel>
             </asp:Panel>

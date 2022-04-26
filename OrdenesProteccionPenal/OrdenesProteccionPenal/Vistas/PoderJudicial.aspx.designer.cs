@@ -123,24 +123,6 @@ namespace OrdenesProteccionPenal.Vistas
         protected global::AjaxControlToolkit.MaskedEditValidator inicio_validator;
 
         /// <summary>
-        /// Control tabs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabs;
-
-        /// <summary>
-        /// Control tabs1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabs1;
-
-        /// <summary>
         /// Control carpeta.
         /// </summary>
         /// <remarks>
@@ -220,32 +202,5 @@ namespace OrdenesProteccionPenal.Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditValidator audiencia_validator;
-
-        /// <summary>
-        /// Control tabs2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabs2;
-
-        /// <summary>
-        /// Control tabs3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabs3;
-
-        /// <summary>
-        /// Control tabs4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel tabs4;
     }
 }

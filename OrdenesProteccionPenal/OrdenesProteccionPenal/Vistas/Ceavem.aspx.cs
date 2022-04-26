@@ -38,10 +38,10 @@ namespace OrdenesProteccionPenal.Vistas
             con.Open();
             query = "select * from die_ordenes_proteccion_penal.tblcatmedidas";
             cmd = new MySqlCommand(query, con);
-            medidas_protec.DataSource = cmd.ExecuteReader();
-            medidas_protec.DataTextField = "desMedida";
-            medidas_protec.DataValueField = "id";
-            medidas_protec.DataBind();
+            medidas_protec2.DataSource = cmd.ExecuteReader();
+            medidas_protec2.DataTextField = "desMedida";
+            medidas_protec2.DataValueField = "id";
+            medidas_protec2.DataBind();
             con.Close();
             con.Dispose();
         }
@@ -61,9 +61,9 @@ namespace OrdenesProteccionPenal.Vistas
             DateTime fecha = Convert.ToDateTime(inicio.Text);
             string resultado_evaluacion = espec_otro.Text ;
 
-            if (listResultados == null)
+            if (listMedidas == null)
             {
-                listResultados = new List<Elemento>();
+                listMedidas= new List<Elemento>();
             }
 
             formu = (List<Elemento>)ViewState["evaluacion"];
@@ -93,11 +93,59 @@ namespace OrdenesProteccionPenal.Vistas
             espec_otro.Text = "";
         }
 
+        protected void limpiarCamposMedidas() {
+            fecha_medida.Text = "";
+            medidas_protec2.SelectedValue = "0";
+        }
+
         protected void paginadorEvaluacion(object sender, GridViewPageEventArgs e)
         {
             llenatablaEvaluacion.PageIndex = e.NewPageIndex;
         }
 
+        protected void paginadorMedidas(object sender, GridViewPageEventArgs e)
+        {
+            llenatablaMedidas.PageIndex = e.NewPageIndex;
+        }
 
+        protected void ButtonMedida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonMedida_Click1(object sender, EventArgs e)
+        {
+            List<Elemento> formu = new List<Elemento>();
+
+            List<Elemento> lista = new List<Elemento>();
+            DateTime fecha = Convert.ToDateTime(fecha_medida.Text);
+            string resultado_evaluacion = medidas_protec2.SelectedItem.Text;
+            string id = medidas_protec2.SelectedValue;
+
+            if (listResultados == null)
+            {
+                listResultados = new List<Elemento>();
+            }
+
+            formu = (List<Elemento>)ViewState["medidas"];
+            if (formu == null)
+            {
+                formu = lista;
+            }
+            formu
+                .Add(new Elemento()
+                {
+                    Fecha = fecha,
+                    Resultado = resultado_evaluacion,
+                    IdResultado = id
+
+                });
+
+            ViewState["medidas"] = formu;
+
+            llenatablaMedidas.DataSource = formu;
+            llenatablaMedidas.DataBind();
+            limpiarCamposMedidas();
+        }
     }
 }
