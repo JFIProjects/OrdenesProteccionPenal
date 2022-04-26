@@ -82,5 +82,9 @@ namespace OrdenesProteccionPenal.Vistas
             contenido_agresor.Visible = false;
             contenido_seguimiento.Visible = true;
         }
+        public void agregarHijo(object sender, EventArgs e)
+        {
+            mascara.Visible = true;
+        }
     }
 }
