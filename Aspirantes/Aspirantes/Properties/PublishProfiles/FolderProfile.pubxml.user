@@ -13,16 +13,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Aspirantes.dll">
-      <publishTime>04/04/2022 21:20:31</publishTime>
+      <publishTime>04/05/2022 16:17:56</publishTime>
     </File>
     <File Include="bin/Aspirantes.pdb">
-      <publishTime>04/04/2022 21:20:31</publishTime>
+      <publishTime>04/05/2022 16:17:56</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>04/09/2018 13:34:56</publishTime>
     </File>
     <File Include="Clases/Entrevista.aspx">
-      <publishTime>04/04/2022 18:18:17</publishTime>
+      <publishTime>04/05/2022 16:16:11</publishTime>
     </File>
     <File Include="Clases/Prueba.aspx">
       <publishTime>04/04/2022 21:00:57</publishTime>
@@ -37,7 +37,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/04/2022 18:18:17</publishTime>
     </File>
     <File Include="Css/Sesion.css">
-      <publishTime>04/04/2022 18:18:17</publishTime>
+      <publishTime>04/05/2022 16:16:11</publishTime>
     </File>
     <File Include="js/Sesion.js">
       <publishTime>04/04/2022 18:18:17</publishTime>

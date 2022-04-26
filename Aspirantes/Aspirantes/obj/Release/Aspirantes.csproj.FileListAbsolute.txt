@@ -6,3 +6,4 @@ C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\A
 C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Release\Aspirantes.csproj.CopyComplete
 C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Release\Aspirantes.dll
 C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Release\Aspirantes.pdb
+C:\Users\M Alberto González V\Source\Repos\OrdenesProteccionPenal2\Aspirantes\Aspirantes\obj\Release\Aspirantes.csprojAssemblyReference.cache

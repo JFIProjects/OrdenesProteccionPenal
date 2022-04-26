@@ -75,11 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clases\Entrevista.aspx" />
-    <Content Include="Clases\Prueba.aspx" />
+    <Content Include="Clases\Login.aspx" />
     <Content Include="Css\animate.css" />
     <Content Include="Css\pnotify.custom.min.css" />
     <Content Include="Css\pnotify.custom.min.js" />
     <Content Include="Css\Sesion.css" />
+    <Content Include="Img\pjem.png" />
     <Content Include="js\Sesion.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -93,12 +94,12 @@
     <Compile Include="Clases\Entrevista.aspx.designer.cs">
       <DependentUpon>Entrevista.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clases\Prueba.aspx.cs">
-      <DependentUpon>Prueba.aspx</DependentUpon>
+    <Compile Include="Clases\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clases\Prueba.aspx.designer.cs">
-      <DependentUpon>Prueba.aspx</DependentUpon>
+    <Compile Include="Clases\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\AspCualitativo.cs" />
     <Compile Include="Modelos\Conocimientos.cs" />
@@ -108,9 +109,7 @@
     <Compile Include="Modelos\Tribunal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Img\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
