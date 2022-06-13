@@ -87,10 +87,62 @@
 
                 <br /><br /><br />
 
-                </asp:Panel>       
+                </asp:Panel>
+
+                <div class="card border-secondary mb-3" style="width: 100%;">
+                    <div class="card-header">Judicialización</div>
+                    <div class="card-body text-secondary">
+                        <br />
+                        <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                            <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="carpeta">* Carpeta</asp:Label>
+                            <asp:TextBox runat="server" ID="carpeta" ClientIDMode="Static" placeholder="Carpeta" CssClass="form-control form-control-sm" />
+                            <%--                                    <asp:RequiredFieldValidator runat="server" ID="carpeta_validator" ErrorMessage="* El nombre(s) no puede estar vació" ControlToValidate="carpeta"
+                                        ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true"  Display="Dynamic" />
+                                    <asp:RegularExpressionValidator ID="carpeta_reg_validator" runat="server" ControlToValidate="carpeta" ValidationExpression="\d{1,5}/\d{4}"
+                                        AutoComplete="true" OnInvalidCssClass="text-danger" ErrorMessage="La carpeta no tiene el formato requerido" SetFocusOnError="true"
+                                        ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />--%>
+                        </asp:Panel>
+
+                        <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                            <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="radicacion">* Fecha de Radicación</asp:Label>
+                            <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
+                                <asp:TextBox ID="radicacion" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy" CssClass="form-control form-control-sm" />
+                                <asp:Label runat="server" CssClass="input-group-append">
+                                    <asp:Label runat="server" ID="radicacion_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
+                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
+                                    </asp:Label>
+                                </asp:Label>
+                            </asp:Panel>
+                            <axT:MaskedEditExtender ID="radicacion_extender" runat="server" TargetControlID="radicacion" MaskType="DateTime" Mask="99/99/9999 99:99:99"
+                                MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                            <axT:MaskedEditValidator ID="radicacion_validator" runat="server" ControlExtender="radicacion_extender" ControlToValidate="inicio" IsValidEmpty="false"
+                                EmptyValueMessage="* Fecha inicio no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
+                            <axT:CalendarExtender runat="server" TargetControlID="radicacion" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="radicacion_icon" />
+
+                        </asp:Panel>
+
+                        <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                            <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="audiencia">* Fecha de Primera Audiencia</asp:Label>
+                            <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
+                                <asp:TextBox ID="audiencia" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
+                                <asp:Label runat="server" CssClass="input-group-append">
+                                    <asp:Label runat="server" ID="audiencia_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
+                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
+                                    </asp:Label>
+                                </asp:Label>
+                            </asp:Panel>
+                            <axT:MaskedEditExtender ID="audiencia_extender" runat="server" TargetControlID="audiencia" MaskType="DateTime" Mask="99/99/9999 99:99:99"
+                                MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                            <axT:MaskedEditValidator ID="audiencia_validator" runat="server" ControlExtender="audiencia_extender" ControlToValidate="inicio" IsValidEmpty="false"
+                                EmptyValueMessage="* Fecha inicio no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
+                            <axT:CalendarExtender runat="server" TargetControlID="audiencia" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="audiencia_icon" />
+
+                        </asp:Panel>
+                    </div>
+                </div>
 
 
-                    <asp:Panel runat="server" ID="tabs" style="width: 100%;">
+<%--                    <asp:Panel runat="server" ID="tabs" style="width: 100%;">
 
                         <ul class="nav nav-tabs" style="background-color: #9d2424;">
                             <li class="nav-item"><a style="color: white; text-decoration: none;" class="nav-link active" data-toggle="tab" href="#tabs1">Carpeta</a></li>
@@ -102,65 +154,10 @@
 
                         <div class="tab-content">
                             <asp:Panel runat="server" ID="tabs1" class="container tab-pane active">
-                                <br />
-                                <asp:Panel runat="server" CssClass="form-group col-xl-12">
-                                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="carpeta">* Carpeta</asp:Label>
-                                    <asp:TextBox runat="server" ID="carpeta" ClientIDMode="Static" placeholder="Carpeta" CssClass="form-control form-control-sm" />
-<%--                                    <asp:RequiredFieldValidator runat="server" ID="carpeta_validator" ErrorMessage="* El nombre(s) no puede estar vació" ControlToValidate="carpeta"
-                                        ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true"  Display="Dynamic" />
-                                    <asp:RegularExpressionValidator ID="carpeta_reg_validator" runat="server" ControlToValidate="carpeta" ValidationExpression="\d{1,5}/\d{4}"
-                                        AutoComplete="true" OnInvalidCssClass="text-danger" ErrorMessage="La carpeta no tiene el formato requerido" SetFocusOnError="true"
-                                        ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />--%>
-                                </asp:Panel>
-
-                                <asp:Panel runat="server" CssClass="form-group col-xl-12">
-                                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="radicacion">* Fecha de Radicación</asp:Label>
-                                    <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
-                                        <asp:TextBox ID="radicacion" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy" CssClass="form-control form-control-sm" />
-                                        <asp:Label runat="server" CssClass="input-group-append">
-                                            <asp:Label runat="server" ID="radicacion_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
-                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
-                                            </asp:Label>
-                                        </asp:Label>
-                                    </asp:Panel>
-                                    <axT:MaskedEditExtender ID="radicacion_extender" runat="server" TargetControlID="radicacion" MaskType="DateTime" Mask="99/99/9999 99:99:99"
-                                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
-                                    <axT:MaskedEditValidator ID="radicacion_validator" runat="server" ControlExtender="radicacion_extender" ControlToValidate="inicio" IsValidEmpty="false"
-                                        EmptyValueMessage="* Fecha inicio no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                                    <axT:CalendarExtender runat="server" TargetControlID="radicacion" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="radicacion_icon" />
-
-                                </asp:Panel>
-
-                                <asp:Panel runat="server" CssClass="form-group col-xl-12">
-                                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="audiencia">* Fecha de Primera Audiencia</asp:Label>
-                                    <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
-                                        <asp:TextBox ID="audiencia" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
-                                        <asp:Label runat="server" CssClass="input-group-append">
-                                            <asp:Label runat="server" ID="audiencia_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
-                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
-                                            </asp:Label>
-                                        </asp:Label>
-                                    </asp:Panel>
-                                    <axT:MaskedEditExtender ID="audiencia_extender" runat="server" TargetControlID="audiencia" MaskType="DateTime" Mask="99/99/9999 99:99:99"
-                                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
-                                    <axT:MaskedEditValidator ID="audiencia_validator" runat="server" ControlExtender="audiencia_extender" ControlToValidate="inicio" IsValidEmpty="false"
-                                        EmptyValueMessage="* Fecha inicio no puede estar vació" InvalidValueMessage="Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
-                                    <axT:CalendarExtender runat="server" TargetControlID="audiencia" Format="dd/MM/yyyy hh:mm:ss" PopupButtonID="audiencia_icon" />
-
-                                </asp:Panel>
-                            </asp:Panel>
-
-
-                            <asp:Panel runat="server" ID="tabs2" class="container tab-pane">
-                            </asp:Panel>
-
-                            <asp:Panel runat="server" ID="tabs3" class="container tab-pane">
-                            </asp:Panel>
-
-                            <asp:Panel runat="server" ID="tabs4" class="container tab-pane">
+                                
                             </asp:Panel>
                         </div>
-                    </asp:Panel>
+                    </asp:Panel>--%>
 
                 </asp:Panel>
             </asp:Panel>

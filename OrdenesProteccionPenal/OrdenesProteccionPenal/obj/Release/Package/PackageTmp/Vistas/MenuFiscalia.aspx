@@ -76,6 +76,45 @@
                     InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
             </asp:Panel>--%>
 
+            
+            <asp:Panel runat="server" ID="aver_panel" Visible="true" CssClass="col-xl-12 p-0">
+<%--                <hr />             --%>
+
+                <asp:Panel runat="server" CssClass="form-group ">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="estado_aver">Estado</asp:Label>
+                    <asp:DropDownList runat="server" ID="estado_aver" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
+                        <asp:ListItem Value="15" Text="México"  />
+                        <asp:ListItem Value="21" Text="Puebla" />
+                        <asp:ListItem Value="24" Text="San Luis Potosi"/>
+                        <asp:ListItem Value="9" Text="Ciudad de México"/>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ID="estado_aver_validator" ErrorMessage="* Selecciona una opción" ControlToValidate="estado_aver"
+                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
+                </asp:Panel>
+
+                <asp:Panel runat="server" CssClass="form-group ">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="municipio_aver">Municipio</asp:Label>
+                    <asp:DropDownList runat="server" ID="municipio_aver" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
+                        <asp:ListItem Value="" Text="--- Municipio ---" Selected="True" />
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ID="municipio_aver_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="municipio_aver"
+                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
+                </asp:Panel>
+
+                <asp:Panel runat="server" CssClass="form-group ">
+                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="delitos">Delito</asp:Label>
+                    <asp:DropDownList runat="server" ID="delitos" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
+                        <asp:ListItem Value="" Text="--- Selecciona Delito ---" Selected="True" />
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ID="juicios_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="delitos"
+                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" ValidationGroup="validation_solicitud"/>
+                </asp:Panel>
+
+                
+            </asp:Panel>
+
+   
+
            
 
             <asp:Panel runat="server" ID="EspecOtro" Visible="false" CssClass="form-group col-xl-12 p-0">
@@ -211,43 +250,6 @@
                 AutoPostBack="true" Text="¿La orden de protección está relacionada con una carpeta de investigación?" name="aver" />--%>
 
 
-            <asp:Panel runat="server" ID="aver_panel" Visible="true" CssClass="col-xl-12 p-0">
-                <hr />             
-
-                <asp:Panel runat="server" CssClass="form-group ">
-                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="estado_aver">Estado</asp:Label>
-                    <asp:DropDownList runat="server" ID="estado_aver" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
-                        <asp:ListItem Value="15" Text="México"  />
-                        <asp:ListItem Value="21" Text="Puebla" />
-                        <asp:ListItem Value="24" Text="San Luis Potosi"/>
-                        <asp:ListItem Value="9" Text="Ciudad de México"/>
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ID="estado_aver_validator" ErrorMessage="* Selecciona una opción" ControlToValidate="estado_aver"
-                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
-                </asp:Panel>
-
-                <asp:Panel runat="server" CssClass="form-group ">
-                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="municipio_aver">Municipio</asp:Label>
-                    <asp:DropDownList runat="server" ID="municipio_aver" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
-                        <asp:ListItem Value="" Text="--- Municipio ---" Selected="True" />
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ID="municipio_aver_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="municipio_aver"
-                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" />
-                </asp:Panel>
-
-                <asp:Panel runat="server" CssClass="form-group ">
-                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="delitos">Delito</asp:Label>
-                    <asp:DropDownList runat="server" ID="delitos" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true">
-                        <asp:ListItem Value="" Text="--- Selecciona Delito ---" Selected="True" />
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ID="juicios_validator" ClientIDMode="Static" ErrorMessage="* Selecciona una opción" ControlToValidate="delitos"
-                        InitialValue="" ForeColor="Red" Font-Size="Small" Font-Italic="true" SetFocusOnError="true" ValidationGroup="validation_solicitud"/>
-                </asp:Panel>
-
-                
-            </asp:Panel>
-
-   
 
         </asp:Panel>
 
@@ -712,7 +714,7 @@
                     <asp:Panel runat="server" CssClass="div_emergente p-4 form-group">
 
                         <asp:Panel runat="server" CssClass="barra_opciones m-0 p-1 d-flex flex-row-reverse ">
-                            <asp:ImageButton runat="server" ImageUrl="~/Vista/Victima/img/close.png"  CausesValidation="false" Width="25px" Height="25px" />
+                            <asp:ImageButton runat="server" ImageUrl="/img/close.png" OnClick="CierraHijo" CausesValidation="false" Width="25px" Height="25px" />
                         </asp:Panel>
 
                         <asp:Panel runat="server" CssClass="form-group col-sm-8  m-0 p-2 form-group">

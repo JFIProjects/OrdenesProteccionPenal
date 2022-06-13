@@ -44,6 +44,8 @@ namespace Aspirantes.Clases
 
 
 
+
+
         public void PreparaCarga(object sender, EventArgs e)
         {
             String b;

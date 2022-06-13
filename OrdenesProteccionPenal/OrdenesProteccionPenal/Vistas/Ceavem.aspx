@@ -135,6 +135,7 @@
 
                         <asp:DropDownList runat="server" ID="medidas_protec2" ClientIDMode="Static" CssClass="form-control custom-select custom-select-sm" AppendDataBoundItems="true" ValidationGroup="groupmedidas">
                             <asp:ListItem Value="0" Text="--Seleccione--" Selected="True" />
+                            <asp:ListItem Value="1" Text="Prueba1" />
                         </asp:DropDownList>
                     </asp:Panel>
 

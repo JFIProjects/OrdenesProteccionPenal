@@ -36,7 +36,7 @@
             <asp:Panel runat="server" ID="Menu" class="container">
                 <asp:Panel runat="server" class="row col-xl">
                   <asp:Panel runat="server" class="col-sm-2 p-2"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarSolicitud" Autopostback ="true">Solicitud</asp:LinkButton></asp:Panel>
-                  <asp:Panel runat="server" class="col-sm-2 p-2"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarVictima" Autopostback ="true">Victima</asp:LinkButton></asp:Panel>
+                  <asp:Panel runat="server" class="col-sm-2 p-2"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarVictima" Autopostback ="true">Víctima</asp:LinkButton></asp:Panel>
                   <asp:Panel runat="server" class="col-sm-2 p-2"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarAgresor" Autopostback ="true">Agresor</asp:LinkButton></asp:Panel>
                   <asp:Panel runat="server" class="col-sm-2 p-2"><asp:LinkButton runat="server" style="text-decoration:none;color: white;" CausesValidation="false" OnClick="MostrarSeguimiento" Autopostback ="true">Seguimiento</asp:LinkButton></asp:Panel>
                   <asp:Panel runat="server" class="col-sm-2 p-2"><a href="MenuPrincipal.aspx" style="color: white;text-decoration:none;">Regresar al menú</a></asp:Panel>

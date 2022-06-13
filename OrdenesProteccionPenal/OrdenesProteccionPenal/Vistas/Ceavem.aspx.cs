@@ -24,7 +24,7 @@ namespace OrdenesProteccionPenal.Vistas
                 {
                     Response.Redirect("Login.aspx");
                 }
-                CargarCatalogos();
+               // CargarCatalogos();
             }
             else
             {
