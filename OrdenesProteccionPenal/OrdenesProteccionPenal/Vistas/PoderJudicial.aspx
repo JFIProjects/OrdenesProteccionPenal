@@ -46,9 +46,93 @@
             </asp:Panel>
                 </asp:Panel>
 
+            <asp:Panel runat="server" CssClass="content container p-4" Visible="true">
+                <asp:Panel runat="server" CssClass="row">
+                    <h3><asp:Label runat="server" CssClass="font-weight-bold">PODER JUDICIAL</asp:Label></h3>
+
+                    <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                        <asp:TextBox ID="TextOrden" ClientIDMode="Static" runat="server" placeholder="Orden" CssClass="form-control form-control-sm" />
+                    </asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
+
+            <asp:Panel runat="server" ID="contenido_seguimiento" ClientIDMode="Static" CssClass="content container p-4" Visible="true">
+                <asp:Panel runat="server" CssClass="row">
+
+                    <asp:Panel runat="server" CssClass="row col-xl-12 p-0">
+                        <div id="content_seguimiento" class="card border-secondary mb-3" style="width: 100%;">
+                            <div class="card-header">Seguimiento</div>
+                            <div class="card-body text-secondary">
+                        <br />
+                            <asp:Panel runat="server" CssClass="row col-xl-12 p-0">
+
+
+                                <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="informe">* Fecha de informe</asp:Label>
+                                    <asp:Panel runat="server" ClientIDMode="AutoID" CssClass="input-group">
+                                        <asp:TextBox ID="informe" ClientIDMode="Static" runat="server" placeholder="dd/MM/yyyy hh:mm:ss" CssClass="form-control form-control-sm" />
+                                        <asp:Label runat="server" CssClass="input-group-append">
+                                            <asp:Label runat="server" ID="informe_icon" ClientIDMode="Static" CssClass="input-group-text bg-danger">
+                                <asp:Label runat="server" CssClass="text-white far fa-calendar-alt"/>
+                                            </asp:Label>
+                                        </asp:Label>
+                                    </asp:Panel>
+                                    <axT:MaskedEditExtender ID="informe_extender" runat="server" TargetControlID="informe" MaskType="Date" Mask="99/99/9999"
+                                        MessageValidatorTip="true" AutoComplete="true" OnInvalidCssClass="text-danger" />
+                                    <axT:MaskedEditValidator ID="informe_validator" runat="server" ControlExtender="informe_extender" ControlToValidate="informe" IsValidEmpty="false"
+                                        EmptyValueMessage="* Fecha emisión no puede estar vació" InvalidValueMessage="* Fecha no valida" ForeColor="Red" Font-Size="Small" Font-Italic="true" Display="Dynamic" />
+                                    <axT:CalendarExtender runat="server" TargetControlID="informe" Format="dd/MM/yyyy" PopupButtonID="informe_icon" />
+                                </asp:Panel>
+
+                                <asp:Panel runat="server" CssClass="form-group col-xl-6">
+                                    <asp:CheckBox runat="server" ID="cumple_medida" ClientIDMode="Static" CssClass="form-group custom-control custom-switch font-weight-bold"
+                                        AutoPostBack="true" Text="¿Se cumplió la medida?" name="cumple_medida" />
+                                </asp:Panel>
+
+                                <asp:Panel runat="server" CssClass="form-group col-xl-12">
+                                    <asp:Label runat="server" CssClass="font-weight-bold" AssociatedControlID="informe">Observaciones </asp:Label>
+                                    <asp:TextBox ID="TextObservaciones" ClientIDMode="Static" runat="server" placeholder="Información adicional" CssClass="form-control form-control-sm" />
+                                </asp:Panel>
+
+                                <asp:LinkButton runat="server" style="text-decoration:none;color: white;" class="btn btn-dark" CausesValidation="false"  Autopostback ="false" >Agregar</asp:LinkButton>
+                                
+                            </asp:Panel>
+                            <br /><br />
+
+                            <asp:Panel ID="tabla_seguimiento" runat="server">
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Fecha de informe</th>
+                                      <th scope="col">Cumplió medida</th>
+                                      <th scope="col">Observaciones</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">0000-00-00</th>
+                                      <td>Si</td>
+                                      <td>Sin Observaciones</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">0000-00-00</th>
+                                      <td>No</td>
+                                      <td>Se observa que ...</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            </asp:Panel>
+
+                            <%--                <asp:Calendar runat="server" SelectedDate="<%# DateTime.Today %>" ></asp:Calendar>--%>
+
+                        </div> <%-- TERMINA CARD BODY --%>
+                            </div>
+                    </asp:Panel>
+                </asp:Panel>
+            </asp:Panel>
 
             <asp:Panel runat="server" ID="contenido_orden" ClientIDMode="Static" CssClass="content container p-4" Visible ="true">
-                <h3><asp:Label runat="server" CssClass="font-weight-bold">PODER JUDICIAL</asp:Label></h3><br />
+<%--                <h3><asp:Label runat="server" CssClass="font-weight-bold">PODER JUDICIAL</asp:Label></h3><br />--%>
         <asp:Panel runat="server" CssClass="row">
             <asp:Panel runat="server" CssClass="row col-xl-12 p-0">
             <asp:Panel runat="server" CssClass="form-group col-xl-6">
